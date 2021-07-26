@@ -9,6 +9,13 @@ from influxdb import InfluxDBClient
 
 
 def get_fdsn_client(fdsn_server, fdsn_port):
+    """ 
+    Cliente para conectarse a un servidor fdsn 
+    
+    :param string fdsn_server: servidor fdns
+    :param string fdns_port: puerto fdns
+    :raises Exception e: error al conectarse al servidor fdns
+    """
     
     try:
         return Client("http://%s:%s" %(fdsn_server,fdsn_port))
@@ -16,6 +23,15 @@ def get_fdsn_client(fdsn_server, fdsn_port):
         raise Exception("Error in connect to fdsn server: %s" %str(e))
 
 def get_events_by_day(fdsn_client,start_time,end_time):
+    """ 
+    Obtiene los eventos por dia 
+    
+    :param string fdsn_client: cliente fdsn 
+    :param int start_time: hora de inicio 
+    :param int end_time: hora de finalizacion 
+    :return fdsn_client.get_events
+    :raises Exception e: Error al obtener eventos por ubicación de la estación
+    """
     
     try:
         return fdsn_client.get_events(orderby="time-asc",starttime=start_time,endtime=end_time,includearrivals=True,includeallorigins=True)
@@ -23,7 +39,18 @@ def get_events_by_day(fdsn_client,start_time,end_time):
     except Exception as e:
         raise Exception("Error in get_events_by_station_location: %s" %str(e))
     
-def get_influx_client(host,port,user,passw,db_name):    
+def get_influx_client(host,port,user,passw,db_name):
+    """  
+    Obtiene un cliente influx
+    
+    :param string host: alfitrion
+    :param string port
+    :param string user: usuario 
+    :param string passw: contraseña
+    :param string db_name: nombre de la base de datos 
+    :return InfluxDBClient
+    :Raises Exception e: error al crear el cliente influx
+    """  
     try:
         return InfluxDBClient(host=host,port=port, username=user,password=passw,database=db_name)
     
@@ -31,6 +58,13 @@ def get_influx_client(host,port,user,passw,db_name):
         raise Exception("Error creating influxdb client: %s" %str(e))  
 
 def insert_event_2_influxdb(eventos,client_ifxdb):
+    """
+    Guarda una lista de eventos en una base de datos en series de tiempo 
+    
+    :param list eventos
+    :param string client_ifxdb: cliente ifxdb
+     
+    """
     
     for i, event in enumerate(eventos):
         origin=event.preferred_origin() or event.origins[0]
@@ -60,6 +94,12 @@ def insert_event_2_influxdb(eventos,client_ifxdb):
         
     
 def insert_false_picks(events,client_ifxdb):
+    """ 
+    Guarda en una base de datos los pickles de los eventos falsos 
+    
+    :param list events: eventos 
+    :param string client_ifxdb: cliente ifxdb 
+    """
     
     for i, event in enumerate(events):
         if event.event_type=="not existing":
