@@ -10,11 +10,11 @@ from influxdb import InfluxDBClient
 
 def get_fdsn_client(fdsn_server, fdsn_port):
     """ 
-    Cliente para conectarse a un servidor fdsn 
+    Cliente para conectarse a un servidor FDSN 
     
-    :param string fdsn_server: servidor fdns
-    :param string fdns_port: puerto fdns
-    :raises Exception e: error al conectarse al servidor fdns
+    :param string fdsn_server: IP del servidor FDSN
+    :param string fdns_port: puerto FDSN
+    :raises Exception e: Mensaje de excepcion
     """
     
     try:
@@ -29,7 +29,7 @@ def get_events_by_day(fdsn_client,start_time,end_time):
     :param string fdsn_client: cliente fdsn 
     :param int start_time: hora de inicio 
     :param int end_time: hora de finalizacion 
-    :return fdsn_client.get_events
+    :return obspy.event.catalog 
     :raises Exception e: Error al obtener eventos por ubicación de la estación
     """
     
