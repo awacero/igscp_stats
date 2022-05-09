@@ -30,7 +30,7 @@ def get_events_by_day(fdsn_client,start_time,end_time):
     :param int start_time: hora de inicio 
     :param int end_time: hora de finalizacion 
     :return obspy.event.catalog 
-    :raises Exception e: Error al obtener eventos por ubicación de la estación
+    :raises Exception e: Error al obtener eventos
     """
     
     try:
@@ -43,10 +43,10 @@ def get_influx_client(host,port,user,passw,db_name):
     """  
     Obtiene un cliente influx
     
-    :param string host: alfitrion
-    :param string port
+    :param string host: ip del servidor
+    :param string port: puerto del servidor
     :param string user: usuario 
-    :param string passw: contraseña
+    :param string passw: contrasena
     :param string db_name: nombre de la base de datos 
     :return InfluxDBClient
     :Raises Exception e: error al crear el cliente influx
@@ -59,10 +59,10 @@ def get_influx_client(host,port,user,passw,db_name):
 
 def insert_event_2_influxdb(eventos,client_ifxdb):
     """
-    Guarda una lista de eventos en una base de datos en series de tiempo 
+    Guarda una lista de eventos en una base de datos de series de tiempo 
     
-    :param list eventos
-    :param string client_ifxdb: cliente ifxdb
+    :param list eventos: lista de objetos obspy.core.event
+    :param string client_ifxdb: cliente influx
      
     """
     
@@ -95,10 +95,10 @@ def insert_event_2_influxdb(eventos,client_ifxdb):
     
 def insert_false_picks(events,client_ifxdb):
     """ 
-    Guarda en una base de datos los pickles de los eventos falsos 
+    Guarda en una base de datos los picados de eventos falsos 
     
-    :param list events: eventos 
-    :param string client_ifxdb: cliente ifxdb 
+    :param list events: obspy.core.event 
+    :param influx.client client_ifxdb: cliente ifxdb 
     """
     
     for i, event in enumerate(events):
