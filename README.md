@@ -6,6 +6,7 @@ Code to create statistic information from events stored in the seiscomp3 databas
 $ conda create -n sc3_statistics python=3.10
 
 $ conda activate sc3_statistics
+$ conda  config --add channels conda-forge
 
 $ conda install obspy influxdb pygelf
 
