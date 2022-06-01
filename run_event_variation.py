@@ -9,7 +9,7 @@ import sys
 
 event_list = []
 event_network_mag_list =[]
-events_path = "/home/wacero/borrar/iupd/"
+events_path = "/home/wacero/borrar/igepn2022fzqp/"
 
 
 """
@@ -31,22 +31,41 @@ Transform all data in a dataframe
 file_list = event_variation.create_zip_list(events_path)
 
 for file_zip in file_list:
-    event_list.append(event_variation.zip2catalog(file_zip))
+    try:
+        event_list.append(event_variation.zip2catalog(file_zip))
+
+    except: pass
 
 for e in event_list:
-    event_network_mag_list += event_variation.get_network_magnitude(e)
 
+    try:
+        event_network_mag_list += event_variation.get_network_magnitude(e)
+    except: pass
 
 for e in event_list:
-    event_variation.add_extra_info2station_magnitude(e)
+    try:
+        event_variation.add_extra_info2station_magnitude(e)
+    except: pass
 
 
 event_df = event_variation.create_dataframe(event_list)
 
 event_simple = event_variation.create_simple_dataframe(event_df)
 
+#print(event_simple.head(10))
+
+event_network_mag_pd = pd.DataFrame.from_records(event_network_mag_list)
+
+event_simple.set_index('creation_time',inplace=True)
+event_network_mag_pd.set_index('creation_time',inplace=True)
+print(event_network_mag_pd)
+print("####")
 print(event_simple.head(10))
-print(event_network_mag_list[0:10])
+
+
+#for e in event_network_mag_list:
+#    print(e)
+    #print(event_network_mag_list[0:10])
 
 
 ''' 

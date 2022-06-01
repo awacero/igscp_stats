@@ -7,6 +7,7 @@ from obspy.clients.fdsn  import Client
 from obspy import UTCDateTime
 from influxdb import InfluxDBClient
 
+from influxdb import DataFrameClient
 
 def get_fdsn_client(fdsn_server, fdsn_port):
     """ 
@@ -56,6 +57,27 @@ def get_influx_client(host,port,user,passw,db_name):
     
     except Exception as e:
         raise Exception("Error creating influxdb client: %s" %str(e))  
+
+
+def get_influx_DF_client(host,port,user,passw,db_name):
+    """  
+    Obtiene un cliente influx
+    
+    :param string host: ip del servidor
+    :param string port: puerto del servidor
+    :param string user: usuario 
+    :param string passw: contrasena
+    :param string db_name: nombre de la base de datos 
+    :return InfluxDBClient
+    :Raises Exception e: error al crear el cliente influx
+    """  
+    try:
+        return DataFrameClient(host=host,port=port, username=user,password=passw,database=db_name)
+    
+    except Exception as e:
+        raise Exception("Error creating influxdb DataFrame client: %s" %str(e))  
+
+
 
 def insert_event_2_influxdb(eventos,client_ifxdb):
     """
@@ -116,10 +138,34 @@ def insert_false_picks(events,client_ifxdb):
                                    %(pick, time.ns),{'db':'sc3_events_info'},protocol='line')
             
             
-            #print("%s\n" %event.origins)
-            
+            #print("%s\n" %event.origins)    
     
-    
-    
-    
-    
+def insert_station_magnitudes(station_mag_pd, client_ifxdb):
+
+    """
+    """
+    station_mag_pd.set_index('creation_time',inplace=True)
+    measurement = 'magnitude_variation'
+    tags = ['station_id','station_magnitude_type','author','event_id']
+
+    try:
+
+        client_ifxdb.write_points(dataframe=station_mag_pd, measurement=measurement,tag_columns=tags, protocol='line')
+
+    except Exception as e:
+        print("Error in insert_station_magnitudes(): %s" %e)
+
+     
+def insert_network_magnitudes(network_mag_pd, client_ifxdb):
+
+    """
+    """
+    network_mag_pd.set_index('creation_time',inplace=True)
+    measurement = 'network_magnitude_variation'
+    tags = ['type','event_id']
+    try:
+
+        client_ifxdb.write_points(dataframe=network_mag_pd, measurement=measurement,tag_columns=tags, protocol='line')
+
+    except Exception as e:
+        print("Error in insert_station_magnitudes(): %s" %e)

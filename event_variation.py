@@ -43,9 +43,6 @@ def create_zip_list(event_folder):
     return file_list
 
 
-def modify_event():
-    pass
-
 """
 def get_network_magnitude(event):
 
@@ -70,7 +67,10 @@ def get_network_magnitude(event):
 
     '''Recover network magnitudes (average values of all stations)'''
     for m in event.magnitudes:
-        network_mag_dict ={'mag':m['mag'],'type':m['magnitude_type'], 'creation_time':m.creation_info['creation_time'],
+        network_mag_dict ={'mag':round(m['mag'],2),'type':m['magnitude_type'], 
+                            'creation_time':m.creation_info['creation_time'].datetime,
+                            'station_count':m['station_count'], 
+                            #'evaluation_mode':m['evaluation_mode'], 'evaluation_status':m['evaluation_status'],
                             'event_id':event_id, 'modification_time':event.extra['modification_time']}
         
         network_magnitude.append(network_mag_dict)
@@ -82,10 +82,8 @@ def add_extra_info2station_magnitude(event):
 
     event_id = event.resource_id.id.split("/")[-1]
 
-    for station_mag in event.station_magnitudes:
-        
+    for station_mag in event.station_magnitudes:        
         station_mag.extra =  {'modification_time':event.extra['modification_time'], 'event_id':event_id}
-        print(station_mag.extra)
 
 
 def create_dataframe(event_list):
@@ -108,4 +106,5 @@ def create_simple_dataframe(event_df):
     
     event_df['event_id']=event_df['extra'].apply(lambda x: x['event_id'])
 
+    event_df['mag'] = event_df.mag.round(2)
     return event_df[['station_id','mag','station_magnitude_type','creation_time','author','event_id','modification_time']]
