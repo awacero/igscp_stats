@@ -16,7 +16,7 @@ if gmutils.check_file("./config/logging.ini"):
     logging.config.fileConfig('./config/logging.ini', disable_existing_loggers=False)
     logger=logging.getLogger('run_sc3_statistics')
 
-
+##USAR MAGNITUDE_TYPE en lugar de TYPE 
 
 
 def main():
@@ -112,7 +112,7 @@ def main():
                         temp_end = temp_start + 86400
                         eventos= sc3_statistics.get_events_by_day(fdsn_client, temp_start, temp_end)
 
-                        sc3_statistics.insert_false_picks(eventos, influx_client)
+                        #sc3_statistics.insert_false_picks(eventos, influx_client)
                         sc3_statistics.insert_event_2_influxdb(eventos, influx_client)
 
                 except Exception as e:
@@ -126,7 +126,4 @@ def main():
 
 
 main()
-
-
-
 

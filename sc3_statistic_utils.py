@@ -35,7 +35,7 @@ def get_events_by_day(fdsn_client,start_time,end_time):
     """
     
     try:
-        return fdsn_client.get_events(orderby="time-asc",starttime=start_time,endtime=end_time,includearrivals=True,includeallorigins=True)
+        return fdsn_client.get_events(orderby="time-asc",starttime=start_time,endtime=end_time,includearrivals=True,includeallorigins=True,includecomments=True)
         
     except Exception as e:
         raise Exception("Error in get_events_by_station_location: %s" %str(e))
@@ -89,30 +89,48 @@ def insert_event_2_influxdb(eventos,client_ifxdb):
     """
     
     for i, event in enumerate(eventos):
+        
+        author = event.creation_info.author
         origin=event.preferred_origin() or event.origins[0]
-        lat, lon,time=round(origin.latitude,4),round(origin.longitude,4), origin.time
+        lat, lon, depth, time=round(origin.latitude,4),round(origin.longitude,4), round(origin.depth,4), origin.time 
             
         if event.magnitudes:
             magnitude=event.preferred_magnitude() or event.magnitudes[0]
             magnitude_value=round(magnitude.mag,4)
+            magnitude_type = magnitude.magnitude_type
         else:
-            magnitude_value=0
-            
+            magnitude_value=-1
+            magnitude_type = "-"
         if event.event_type:
             e_type=event.event_type
             event_type=e_type.replace(" ","_")
         else:
             event_type="not_set"  
         
+        if event.comments:
+            comment = event.comments[0].text
+        else:
+            comment = '--'
+        earthquake_name = '_'
+        region_name =  '__'
+        if event.event_descriptions:
+            for e_d in event.event_descriptions:
+                if e_d.type == 'earthquake name':
+
+                    earthquake_name = e_d.text
+                elif e_d.type == 'region name':
+                    region_name = e_d.text
+                
         event_id=event['resource_id'].id[-13:]
         num_origins= len(event.origins)
         mean_picks = int(len(event.picks)/num_origins)
+        num_amplitudes = len(event.amplitudes)
         
         #print(time,event_id,lat,lon, magnitude_value, num_origins, mean_picks,event_num)
-        print(time, event_id, event_type)
+        print(time, event_id, event_type, author, lat,lon,depth,magnitude_value, magnitude_type,  comment, region_name, num_amplitudes, earthquake_name)
         
-        client_ifxdb.write("event_info,eventid=%s,event_type='%s' lat=%s,lon=%s,mag_value=%s,num_orig=%s,mean_pick=%s,aux_val=1  %s" 
-                           %(event_id,event_type, lat,lon,magnitude_value,num_origins,mean_picks, time.ns), {'db':'sc3_events_info'},protocol='line' )
+        #client_ifxdb.write("event_info,eventid=%s,event_type='%s' lat=%s,lon=%s,mag_value=%s,num_orig=%s,mean_pick=%s,aux_val=1  %s" 
+        #                   %(event_id,event_type, lat,lon,magnitude_value,num_origins,mean_picks, time.ns), {'db':'sc3_events_info'},protocol='line' )
         
     
 def insert_false_picks(events,client_ifxdb):
