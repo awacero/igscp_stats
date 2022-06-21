@@ -148,9 +148,7 @@ def main():
             #print(event_network_mag_list)
             event_network_mag_pd = pd.DataFrame.from_records(event_network_mag_list)
             #"""
-            sc3_statistics.insert_station_magnitudes(station_mag_df.head(5).loc[:, 
-            
-                ~station_mag_df.columns.isin(['event_creation_time'])],influx_df_client)
+            sc3_statistics.insert_station_magnitudes(station_mag_df.head(5).loc[:,~station_mag_df.columns.isin(['event_creation_time'])],influx_df_client)
             #sc3_statistics.insert_network_magnitudes(event_network_mag_df.head(5) ,influx_df_client)
             
 
