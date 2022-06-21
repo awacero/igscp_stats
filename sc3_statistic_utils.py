@@ -162,13 +162,14 @@ def insert_station_magnitudes(station_mag_pd, client_ifxdb):
 
     """
     """
-    station_mag_pd.set_index('creation_time',inplace=True)
+    #station_mag_pd.set_index('creation_time',inplace=True)
     measurement = 'magnitude_variation'
     tags = ['station_id','station_magnitude_type','author','event_id']
 
     try:
 
-        client_ifxdb.write_points(dataframe=station_mag_pd, measurement=measurement,tag_columns=tags, protocol='line')
+        client_ifxdb.write_points(dataframe=station_mag_pd, measurement=measurement,
+            tag_columns=tags, protocol='line')
 
     except Exception as e:
         print("Error in insert_station_magnitudes(): %s" %e)
@@ -178,9 +179,10 @@ def insert_network_magnitudes(network_mag_pd, client_ifxdb):
 
     """
     """
-    network_mag_pd.set_index('creation_time',inplace=True)
+    
+    #network_mag_pd.set_index('creation_time',inplace=True)
     measurement = 'network_magnitude_variation'
-    tags = ['type','event_id']
+    tags = ['magnitude_type','author','event_id']
     try:
 
         client_ifxdb.write_points(dataframe=network_mag_pd, measurement=measurement,tag_columns=tags, protocol='line')

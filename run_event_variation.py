@@ -1,3 +1,4 @@
+from csv import excel_tab
 import os, sys
 import logging, logging.config
 
@@ -92,34 +93,65 @@ def main():
             for file_zip in file_list:
                 try:
                     event_list.append(event_variation.zip2catalog(file_zip))
-                except:
+                except Exception as e:
+                    print("Error in append file: %s" %e)
                     pass
 
             for e in event_list:
                 try:
                     event_network_mag_list += event_variation.get_network_magnitude(e)
-                except:
+                except  Exception as e:
+                    print("Error in get_network_magnitude: %s" %e)
                     pass
 
             for e in event_list:
                 try:
-                    event_variation.add_extra_info2station_magnitude(e)
-                except:
+                    event_variation.add_event_info2station_magnitude(e)
+                except Exception as e:
+                    print("Error in add_event_info2station_magnitude: %s" %e)
+
                     pass
+            
+            station_mag_df = event_variation.create_station_magnitude_df(event_list)
+            station_mag_df = event_variation.create_simple_station_mag_df(station_mag_df)
+            event_network_mag_df = pd.DataFrame.from_records(event_network_mag_list)
 
+            event_network_mag_df['time_diff'] =  event_network_mag_df['creation_time'] - event_network_mag_df['event_creation_time']
+            event_network_mag_df['time_diff'] = event_network_mag_df['time_diff'].apply( lambda x: x.total_seconds()/3600)
+            event_network_mag_df['time_diff'] = event_network_mag_df['time_diff'].round(4)
+
+            station_mag_df['time_diff'] = station_mag_df.creation_time - station_mag_df.event_creation_time
+            station_mag_df['time_diff'] = station_mag_df['time_diff'].apply(lambda x: x.total_seconds()/3600)
+            station_mag_df['time_diff'] = station_mag_df['time_diff'].round(4)
+
+            #station_mag_df['modification_time'] = station_mag_df['modification_time'].apply(lambda x: x.strftime("%Y-%m-%dT%H-%M-%S"))
+            station_mag_df['modification_time'] = station_mag_df['modification_time'].apply(lambda x: x.isoformat())
+            station_mag_df['event_creation_time'] = station_mag_df['event_creation_time'].apply(lambda x: x.isoformat())
+
+            ##COMO OBTENER VALORES POR TAMANO DE MAGNITUD
+            event_network_mag_df['mag_diff'] = event_network_mag_df['mag'] - event_network_mag_df['mag'].min()
+            event_network_mag_df['mag_diff'] = event_network_mag_df['mag_diff'].round(4)
+
+
+            station_mag_df['mag_diff'] = station_mag_df['mag'] - station_mag_df['mag'].min()
+            station_mag_df['mag_diff'] = station_mag_df['mag_diff'].round(4)
+
+            station_mag_df.set_index('creation_time',inplace=True)
+            event_network_mag_df.set_index('creation_time',inplace=True)
+
+            print(station_mag_df.head(10))
+            #print(event_network_mag_df.head(10))
+            """
             event_df = event_variation.create_dataframe(event_list)
-
             event_simple = event_variation.create_simple_dataframe(event_df)
-
             #print(event_simple.head(10))
             #print(event_network_mag_list)
             event_network_mag_pd = pd.DataFrame.from_records(event_network_mag_list)
-
-
-
-            sc3_statistics.insert_station_magnitudes(event_simple,influx_df_client)
-
-            sc3_statistics.insert_network_magnitudes(event_network_mag_pd,influx_df_client)
+            #"""
+            sc3_statistics.insert_station_magnitudes(station_mag_df.head(5).loc[:, 
+            
+                ~station_mag_df.columns.isin(['event_creation_time'])],influx_df_client)
+            #sc3_statistics.insert_network_magnitudes(event_network_mag_df.head(5) ,influx_df_client)
             
 
         elif run_mode == "LIST":
