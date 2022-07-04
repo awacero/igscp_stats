@@ -70,6 +70,7 @@ def get_network_magnitude(event):
 
     network_magnitude = []
     event_id = event.resource_id.id.split("/")[-1]
+    #print( "##CTM %s" %event.creation_info['creation_time'])
     event_creation_time = event.creation_info['creation_time'].datetime
     
     for m in event.magnitudes:
@@ -122,7 +123,66 @@ def create_station_magnitude_df(event_list):
     for event in event_list:
         temp_list.append(pd.DataFrame.from_records(event.station_magnitudes ))
 
-    return pd.concat(temp_list)
+    st_mag_df = pd.concat(temp_list)
+    
+
+    st_mag_df['station_id'] = st_mag_df['waveform_id'].apply(lambda x: x.network_code + 
+                                                            "_" + x.station_code + "_" + x.channel_code)
+    st_mag_df['creation_time'] = st_mag_df['creation_info'].apply(lambda x: x.creation_time.datetime)                
+    st_mag_df['author'] = st_mag_df['creation_info'].apply(lambda x: x.author)
+
+    
+    st_mag_df['modification_time']=st_mag_df['extra'].apply(lambda x: x['modification_time'] if x['modification_time'] else np.nan)
+
+    st_mag_df['event_creation_time'] = st_mag_df['extra'].apply(lambda x: x['event_creation_time'] if x else np.nan)
+
+    st_mag_df['event_id']=st_mag_df['extra'].apply(lambda x: x['event_id'] if x else np.nan)
+
+    st_mag_df['amplitude_id'] = st_mag_df['amplitude_id'].apply(lambda x: x.id)
+    st_mag_df['mag'] = st_mag_df.mag.round(4)
+
+
+
+    station_mag_df = st_mag_df[['creation_time','station_id','mag','station_magnitude_type',
+            'author', 'event_id','modification_time','event_creation_time','amplitude_id']].copy()
+
+
+
+    station_mag_df['time_diff'] = station_mag_df.creation_time - station_mag_df.event_creation_time
+    station_mag_df['time_diff'] = station_mag_df['time_diff'].apply(lambda x: x.total_seconds()/3600)
+    station_mag_df['time_diff'] = station_mag_df['time_diff'].round(4)
+    station_mag_df['modification_time'] = station_mag_df['modification_time'].apply(lambda x: x.isoformat())
+    station_mag_df['event_creation_time'] = station_mag_df['event_creation_time'].apply(lambda x: x.isoformat())
+    station_mag_df['mag_diff'] = station_mag_df['mag'] - station_mag_df['mag'].mean()
+    station_mag_df['mag_diff'] = station_mag_df['mag_diff'].round(4).abs()
+    print( " CTM2")
+    print(st_mag_df.head())
+
+    station_mag_df.dropna(inplace=True)
+
+    station_mag_df.set_index('creation_time',inplace=True)
+
+    return station_mag_df
+
+
+def create_network_magnitude_df(event_network_mag_list):
+    event_network_mag_df = pd.DataFrame.from_records(event_network_mag_list)
+
+    event_network_mag_df.dropna(inplace=True)
+    event_network_mag_df['time_diff'] =  event_network_mag_df['creation_time'] - event_network_mag_df['event_creation_time']
+    event_network_mag_df['time_diff'] = event_network_mag_df['time_diff'].apply( lambda x: x.total_seconds()/3600)
+    event_network_mag_df['time_diff'] = event_network_mag_df['time_diff'].round(4)
+    event_network_mag_df.modification_time = event_network_mag_df.modification_time.apply(lambda x: x.isoformat())
+    event_network_mag_df.event_creation_time = event_network_mag_df.event_creation_time.apply(lambda x: x.isoformat())
+    ##COMO OBTENER VALORES POR TAMANO DE MAGNITUD
+    event_network_mag_df['mag_diff'] = event_network_mag_df['mag'] - event_network_mag_df['mag'].mean()
+    event_network_mag_df['mag_diff'] = event_network_mag_df['mag_diff'].round(4).abs()
+
+    
+    event_network_mag_df.set_index('creation_time',inplace=True)
+    
+    return event_network_mag_df 
+
 
 def create_amplitude_df(event_list):
 
@@ -133,21 +193,7 @@ def create_amplitude_df(event_list):
 
     return pd.concat(temp_list)
 
-def create_simple_station_mag_df(station_mag_df):
 
-    station_mag_df['station_id'] = station_mag_df['waveform_id'].apply(lambda x: x.network_code + 
-                                                            "_" + x.station_code + "_" + x.channel_code)
-    station_mag_df['creation_time'] = station_mag_df['creation_info'].apply(lambda x: x.creation_time.datetime)                
-    station_mag_df['author'] = station_mag_df['creation_info'].apply(lambda x: x.author)
-    station_mag_df['modification_time']=station_mag_df['extra'].apply(lambda x: x['modification_time'])
-    
-    station_mag_df['event_creation_time'] = station_mag_df['extra'].apply(lambda x: x['event_creation_time'])
 
-    station_mag_df['event_id']=station_mag_df['extra'].apply(lambda x: x['event_id'])
 
-    station_mag_df['amplitude_id'] = station_mag_df['amplitude_id'].apply(lambda x: x.id)
-    station_mag_df['mag'] = station_mag_df.mag.round(4)
-
-    return station_mag_df[['creation_time','station_id','mag','station_magnitude_type','author',
-    'event_id','modification_time','event_creation_time','amplitude_id']]
 

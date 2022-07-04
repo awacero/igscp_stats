@@ -127,10 +127,10 @@ def insert_event_2_influxdb(eventos,client_ifxdb):
         num_amplitudes = len(event.amplitudes)
         
         #print(time,event_id,lat,lon, magnitude_value, num_origins, mean_picks,event_num)
-        print(time, event_id, event_type, author, lat,lon,depth,magnitude_value, magnitude_type,  comment, region_name, num_amplitudes, earthquake_name)
+        #print(time, event_id, event_type, author, lat,lon,depth,magnitude_value, magnitude_type,  comment, region_name, num_amplitudes, earthquake_name)
         
-        #client_ifxdb.write("event_info,eventid=%s,event_type='%s' lat=%s,lon=%s,mag_value=%s,num_orig=%s,mean_pick=%s,aux_val=1  %s" 
-        #                   %(event_id,event_type, lat,lon,magnitude_value,num_origins,mean_picks, time.ns), {'db':'sc3_events_info'},protocol='line' )
+        client_ifxdb.write("event_info,eventid=%s,event_type='%s' lat=%s,lon=%s,mag_value=%s,num_orig=%s,mean_pick=%s,aux_val=1  %s" 
+                           %(event_id,event_type, lat,lon,magnitude_value,num_origins,mean_picks, time.ns), {'db':'sc3_events_info'},protocol='line' )
         
     
 def insert_false_picks(events,client_ifxdb):

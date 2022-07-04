@@ -19,6 +19,45 @@ if gmutils.check_file("./config/logging.ini"):
 
 
 
+def scevtlog2influx(events_path, influx_df_client):
+
+    event_list = [] 
+    event_network_mag_list =[]
+    file_list = event_variation.create_zip_list(events_path)
+    file_list.sort()
+
+    for file_zip in file_list[1:]:
+        try:
+            event_list.append(event_variation.zip2catalog(file_zip))
+        except Exception as e:
+            print("Error in append file: %s" %e)
+            pass
+
+    for e in event_list:
+        try:
+            event_network_mag_list += event_variation.get_network_magnitude(e)
+        except  Exception as e:
+            print("Error in get_network_magnitude: %s" %e)
+            pass
+
+    for e in event_list:
+        try:
+            event_variation.add_event_info2station_magnitude(e)
+        except Exception as e:
+            print("Error in add_event_info2station_magnitude: %s" %e)
+
+            pass
+    
+    station_mag_df = event_variation.create_station_magnitude_df(event_list)           
+    event_network_mag_df = event_variation.create_network_magnitude_df(event_network_mag_list)
+    
+    logger.info("Write data to influxdb")
+    #print(station_mag_df.head(10))
+    #print(event_network_mag_df.head(10))
+    #print(event_network_mag_df.mag.describe())
+    sc3_statistics.insert_station_magnitudes(station_mag_df,influx_df_client)
+    sc3_statistics.insert_network_magnitudes(event_network_mag_df ,influx_df_client)
+
 
 def main():
     
@@ -81,7 +120,12 @@ def main():
             raise Exception("Failed to create influx client: %s" %(e))
 
         if run_mode == "SINGLE":
+
+            events_path = sys.argv[2]
+
+            scevtlog2influx(events_path,influx_df_client)
             
+            ''' 
             event_list = [] 
             event_network_mag_list =[]
 
@@ -112,49 +156,31 @@ def main():
 
                     pass
             
-            station_mag_df = event_variation.create_station_magnitude_df(event_list)
-            station_mag_df = event_variation.create_simple_station_mag_df(station_mag_df)
-            event_network_mag_df = pd.DataFrame.from_records(event_network_mag_list)
+            station_mag_df = event_variation.create_station_magnitude_df(event_list)           
+            event_network_mag_df = event_variation.create_network_magnitude_df(event_network_mag_list)
 
-            event_network_mag_df['time_diff'] =  event_network_mag_df['creation_time'] - event_network_mag_df['event_creation_time']
-            event_network_mag_df['time_diff'] = event_network_mag_df['time_diff'].apply( lambda x: x.total_seconds()/3600)
-            event_network_mag_df['time_diff'] = event_network_mag_df['time_diff'].round(4)
-
-            station_mag_df['time_diff'] = station_mag_df.creation_time - station_mag_df.event_creation_time
-            station_mag_df['time_diff'] = station_mag_df['time_diff'].apply(lambda x: x.total_seconds()/3600)
-            station_mag_df['time_diff'] = station_mag_df['time_diff'].round(4)
-
-            #station_mag_df['modification_time'] = station_mag_df['modification_time'].apply(lambda x: x.strftime("%Y-%m-%dT%H-%M-%S"))
-            station_mag_df['modification_time'] = station_mag_df['modification_time'].apply(lambda x: x.isoformat())
-            station_mag_df['event_creation_time'] = station_mag_df['event_creation_time'].apply(lambda x: x.isoformat())
-
-            ##COMO OBTENER VALORES POR TAMANO DE MAGNITUD
-            event_network_mag_df['mag_diff'] = event_network_mag_df['mag'] - event_network_mag_df['mag'].min()
-            event_network_mag_df['mag_diff'] = event_network_mag_df['mag_diff'].round(4)
-
-
-            station_mag_df['mag_diff'] = station_mag_df['mag'] - station_mag_df['mag'].min()
-            station_mag_df['mag_diff'] = station_mag_df['mag_diff'].round(4)
-
-            station_mag_df.set_index('creation_time',inplace=True)
-            event_network_mag_df.set_index('creation_time',inplace=True)
-
-            print(station_mag_df.head(10))
-            #print(event_network_mag_df.head(10))
-            """
-            event_df = event_variation.create_dataframe(event_list)
-            event_simple = event_variation.create_simple_dataframe(event_df)
-            #print(event_simple.head(10))
-            #print(event_network_mag_list)
-            event_network_mag_pd = pd.DataFrame.from_records(event_network_mag_list)
-            #"""
-            sc3_statistics.insert_station_magnitudes(station_mag_df.head(5).loc[:,~station_mag_df.columns.isin(['event_creation_time'])],influx_df_client)
-            #sc3_statistics.insert_network_magnitudes(event_network_mag_df.head(5) ,influx_df_client)
-            
+            sc3_statistics.insert_station_magnitudes(station_mag_df,influx_df_client)
+            sc3_statistics.insert_network_magnitudes(event_network_mag_df ,influx_df_client)
+            ''' 
 
         elif run_mode == "LIST":
-            pass
+            
+            logger.info("LIST MODE")
+            events_path_file = sys.argv[2]
+            events_path_list =[]
+            with open(events_path_file,'r') as file:
+                while (line := file.readline().rstrip()):
+                    events_path_list.append(line)
 
+            
+            for events_path in events_path_list:
+                logger.info("Start of event:%s" %events_path)
+                scevtlog2influx(events_path, influx_df_client)
+                ##CALL CREATE FUNCTION
+
+
+            #print(station_mag_df.head(10))
+            #print(event_network_mag_df.head(10))
 
     if is_error:
         logger.info(f'Usage: python {sys.argv[0]} configuration_file.txt start_date [end_date]')

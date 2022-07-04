@@ -118,7 +118,9 @@ def main():
                 except Exception as e:
                     raise Exception("Error getting days : %s" %str(e))
 
-
+            else:
+                logger.info(f'Usage: python {sys.argv[0]} configuration_file.txt start_date [end_date]')
+                print(f'USAGE: python {sys.argv[0]} CONFIGURATION_FILE.txt start_date [end_date]')                 
 
     if is_error:
         logger.info(f'Usage: python {sys.argv[0]} configuration_file.txt start_date [end_date]')
