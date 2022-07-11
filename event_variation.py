@@ -61,30 +61,23 @@ def add_modification_time(event_xml_uncompressed):
         return ""
     
 
+def fdsn_network_magnitude(event):
 
-def get_network_magnitude(event):
-
-    """
-    Get the list of network magnitudes of an event
-    """
+    event_id = event.resource_id.id.split("/")[-1]
+    event_creation_time = event.creation_info['creation_time'].datetime
 
     network_magnitude = []
-    event_id = event.resource_id.id.split("/")[-1]
-    #print( "##CTM %s" %event.creation_info['creation_time'])
-    event_creation_time = event.creation_info['creation_time'].datetime
-    
+
     for m in event.magnitudes:
-        network_mag_dict ={
-            #'mag':round(m['mag'],4),
+
+        network_mag_dict = { 
             'magnitude_type':m['magnitude_type'], 
             'creation_time':m.creation_info['creation_time'].datetime,
             'author':m.creation_info['author'],
             'station_count':m['station_count'], 
-            #'mag_uncertainty':round(m.mag_errors['uncertainty'],4) or 0,
-            #'evaluation_mode':m['evaluation_mode'], 'evaluation_status':m['evaluation_status'],
-            'event_id':event_id, 'modification_time':event.extra['modification_time'].datetime,  
-            'event_creation_time':event_creation_time  }
-        
+            'event_id':event_id,  
+            'event_creation_time':event_creation_time 
+                }
         if m.mag_errors['uncertainty'] is not NoneType and m.mag_errors['uncertainty'] is not None:
             network_mag_dict['mag_uncertainty'] = round(m.mag_errors['uncertainty'],4)
         else:
@@ -98,6 +91,50 @@ def get_network_magnitude(event):
 
         network_magnitude.append(network_mag_dict)
 
+    pass 
+
+
+def get_network_magnitude(event):
+
+    """
+    Get the list of network magnitudes of an event
+    """
+
+    network_magnitude = []
+    event_id = event.resource_id.id.split("/")[-1]
+    #print( "##CTM %s" %event.creation_info['creation_time'])
+    event_creation_time = event.creation_info['creation_time'].datetime
+
+    
+    for m in event.magnitudes:
+        network_mag_dict ={
+            'magnitude_type':m['magnitude_type'], 
+            'creation_time':m.creation_info['creation_time'].datetime,
+            'author':m.creation_info['author'],
+            'station_count':m['station_count'], 
+            'event_id':event_id, 
+             
+            'event_creation_time':event_creation_time  }
+        
+        if m.mag_errors['uncertainty'] is not NoneType and m.mag_errors['uncertainty'] is not None:
+            network_mag_dict['mag_uncertainty'] = round(m.mag_errors['uncertainty'],4)
+        else:
+            network_mag_dict['mag_uncertainty'] = np.nan
+
+        if m['mag'] is not NoneType and m['mag'] is not None:
+            network_mag_dict['mag'] = round(m['mag'],4)
+
+        else:
+            network_mag_dict['mag']= np.nan                    
+
+        if hasattr(event, 'extra'):
+            network_mag_dict['modification_time'] = event.extra['modification_time'].datetime
+        else:
+            network_mag_dict['modification_time'] = event_creation_time
+
+
+        network_magnitude.append(network_mag_dict)
+
     return network_magnitude
 
 
@@ -106,8 +143,14 @@ def add_event_info2station_magnitude(event):
     event_id = event.resource_id.id.split("/")[-1]
     event_creation_time = event.creation_info['creation_time'].datetime
     for station_mag in event.station_magnitudes:        
-        station_mag.extra =  {'modification_time':event.extra['modification_time'].datetime, 
-            'event_id':event_id, 'event_creation_time':event_creation_time}
+        station_mag.extra =  {'event_id':event_id, 'event_creation_time':event_creation_time}
+
+
+        if hasattr(event,'extra'):
+            station_mag.extra['modification_time'] = event.extra['modification_time'].datetime
+        else:
+            station_mag.extra['modification_time'] = event_creation_time
+
 
 
 def add_amplitud2station_magnitude(event):
@@ -130,36 +173,27 @@ def create_station_magnitude_df(event_list):
                                                             "_" + x.station_code + "_" + x.channel_code)
     st_mag_df['creation_time'] = st_mag_df['creation_info'].apply(lambda x: x.creation_time.datetime)                
     st_mag_df['author'] = st_mag_df['creation_info'].apply(lambda x: x.author)
-
     
     st_mag_df['modification_time']=st_mag_df['extra'].apply(lambda x: x['modification_time'] if x['modification_time'] else np.nan)
-
     st_mag_df['event_creation_time'] = st_mag_df['extra'].apply(lambda x: x['event_creation_time'] if x else np.nan)
-
     st_mag_df['event_id']=st_mag_df['extra'].apply(lambda x: x['event_id'] if x else np.nan)
-
     st_mag_df['amplitude_id'] = st_mag_df['amplitude_id'].apply(lambda x: x.id)
     st_mag_df['mag'] = st_mag_df.mag.round(4)
-
-
 
     station_mag_df = st_mag_df[['creation_time','station_id','mag','station_magnitude_type',
             'author', 'event_id','modification_time','event_creation_time','amplitude_id']].copy()
 
-
-
-    station_mag_df['time_diff'] = station_mag_df.creation_time - station_mag_df.event_creation_time
-    station_mag_df['time_diff'] = station_mag_df['time_diff'].apply(lambda x: x.total_seconds()/3600)
-    station_mag_df['time_diff'] = station_mag_df['time_diff'].round(4)
+    #station_mag_df['time_diff'] = station_mag_df.creation_time - station_mag_df.event_creation_time
+    #station_mag_df['time_diff'] = station_mag_df['time_diff'].apply(lambda x: x.total_seconds()/3600)
+    #station_mag_df['time_diff'] = station_mag_df['time_diff'].round(4)
     station_mag_df['modification_time'] = station_mag_df['modification_time'].apply(lambda x: x.isoformat())
     station_mag_df['event_creation_time'] = station_mag_df['event_creation_time'].apply(lambda x: x.isoformat())
     station_mag_df['mag_diff'] = station_mag_df['mag'] - station_mag_df['mag'].mean()
     station_mag_df['mag_diff'] = station_mag_df['mag_diff'].round(4).abs()
-    print( " CTM2")
-    print(st_mag_df.head())
-
+    
+    print((st_mag_df.modification_time,st_mag_df.creation_time))
+    print(st_mag_df.modification_time - st_mag_df.creation_time)
     station_mag_df.dropna(inplace=True)
-
     station_mag_df.set_index('creation_time',inplace=True)
 
     return station_mag_df
@@ -169,16 +203,17 @@ def create_network_magnitude_df(event_network_mag_list):
     event_network_mag_df = pd.DataFrame.from_records(event_network_mag_list)
 
     event_network_mag_df.dropna(inplace=True)
-    event_network_mag_df['time_diff'] =  event_network_mag_df['creation_time'] - event_network_mag_df['event_creation_time']
-    event_network_mag_df['time_diff'] = event_network_mag_df['time_diff'].apply( lambda x: x.total_seconds()/3600)
-    event_network_mag_df['time_diff'] = event_network_mag_df['time_diff'].round(4)
+    
+    #event_network_mag_df['time_diff'] =  event_network_mag_df['creation_time'] - event_network_mag_df['event_creation_time']
+    #event_network_mag_df['time_diff'] = event_network_mag_df['time_diff'].apply( lambda x: x.total_seconds()/3600)
+    #event_network_mag_df['time_diff'] = event_network_mag_df['time_diff'].round(4)
+    
     event_network_mag_df.modification_time = event_network_mag_df.modification_time.apply(lambda x: x.isoformat())
     event_network_mag_df.event_creation_time = event_network_mag_df.event_creation_time.apply(lambda x: x.isoformat())
     ##COMO OBTENER VALORES POR TAMANO DE MAGNITUD
     event_network_mag_df['mag_diff'] = event_network_mag_df['mag'] - event_network_mag_df['mag'].mean()
     event_network_mag_df['mag_diff'] = event_network_mag_df['mag_diff'].round(4).abs()
 
-    
     event_network_mag_df.set_index('creation_time',inplace=True)
     
     return event_network_mag_df 

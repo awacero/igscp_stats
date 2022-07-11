@@ -8,6 +8,7 @@ from get_mseed_data import get_mseed
 from get_mseed_data import get_mseed_utils as gmutils
 
 import event_variation
+import variation_fdsn_plotly
 import pandas as pd 
 from obspy import UTCDateTime
 import sc3_statistic_utils as sc3_statistics
@@ -52,7 +53,7 @@ def scevtlog2influx(events_path, influx_df_client):
     event_network_mag_df = event_variation.create_network_magnitude_df(event_network_mag_list)
     
     logger.info("Write data to influxdb")
-    #print(station_mag_df.head(10))
+    #print(station_mag_df.)
     #print(event_network_mag_df.head(10))
     #print(event_network_mag_df.mag.describe())
     sc3_statistics.insert_station_magnitudes(station_mag_df,influx_df_client)
@@ -119,50 +120,44 @@ def main():
             logger.error("Failed to create influx client: %s" %(e))
             raise Exception("Failed to create influx client: %s" %(e))
 
-        if run_mode == "SINGLE":
+        #este modo se agregó para poder generar información 
+        # apartir de datos desde FDSN
+        if run_mode == "FDSN":
+            print("start of FDSN mode. Can not recover station magnitudes")
+            event_id = sys.argv[2]
+            event = variation_fdsn_plotly.get_event_from_fdsnws(fdsn_client,event_id)
+
+            event_n_m = event_variation.get_network_magnitude(event[0])
+
+            event_n_m_df = event_variation.create_network_magnitude_df(event_n_m)
+
+
+            print(event_n_m_df.head(10))
+
+            variation_fdsn_plotly.generate_plotly_network_magnitud(event_n_m_df)
+        
+        if run_mode == "LOCAL":
+            print("start of LOCAL mode. Do not send to INFLUX")
+            
+            events_path = sys.argv[2]
+            
+            event = variation_fdsn_plotly.get_event_from_fdsnws(fdsn_client,event_id)
+
+            event_n_m = event_variation.get_network_magnitude(event[0])
+
+            event_n_m_df = event_variation.create_network_magnitude_df(event_n_m)
+
+
+            print(event_n_m_df.head(10))
+
+            variation_fdsn_plotly.generate_plotly_network_magnitud(event_n_m_df)
+
+        elif run_mode == "SINGLE":
 
             events_path = sys.argv[2]
 
             scevtlog2influx(events_path,influx_df_client)
             
-            ''' 
-            event_list = [] 
-            event_network_mag_list =[]
-
-            events_path = sys.argv[2]
-
-            file_list = event_variation.create_zip_list(events_path)
-            file_list.sort()
-
-            for file_zip in file_list:
-                try:
-                    event_list.append(event_variation.zip2catalog(file_zip))
-                except Exception as e:
-                    print("Error in append file: %s" %e)
-                    pass
-
-            for e in event_list:
-                try:
-                    event_network_mag_list += event_variation.get_network_magnitude(e)
-                except  Exception as e:
-                    print("Error in get_network_magnitude: %s" %e)
-                    pass
-
-            for e in event_list:
-                try:
-                    event_variation.add_event_info2station_magnitude(e)
-                except Exception as e:
-                    print("Error in add_event_info2station_magnitude: %s" %e)
-
-                    pass
-            
-            station_mag_df = event_variation.create_station_magnitude_df(event_list)           
-            event_network_mag_df = event_variation.create_network_magnitude_df(event_network_mag_list)
-
-            sc3_statistics.insert_station_magnitudes(station_mag_df,influx_df_client)
-            sc3_statistics.insert_network_magnitudes(event_network_mag_df ,influx_df_client)
-            ''' 
-
         elif run_mode == "LIST":
             
             logger.info("LIST MODE")
