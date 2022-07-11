@@ -102,7 +102,6 @@ def get_network_magnitude(event):
 
     network_magnitude = []
     event_id = event.resource_id.id.split("/")[-1]
-    #print( "##CTM %s" %event.creation_info['creation_time'])
     event_creation_time = event.creation_info['creation_time'].datetime
 
     
@@ -191,8 +190,7 @@ def create_station_magnitude_df(event_list):
     station_mag_df['mag_diff'] = station_mag_df['mag'] - station_mag_df['mag'].mean()
     station_mag_df['mag_diff'] = station_mag_df['mag_diff'].round(4).abs()
     
-    print((st_mag_df.modification_time,st_mag_df.creation_time))
-    print(st_mag_df.modification_time - st_mag_df.creation_time)
+
     station_mag_df.dropna(inplace=True)
     station_mag_df.set_index('creation_time',inplace=True)
 

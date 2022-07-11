@@ -8,7 +8,7 @@ $ conda create -n sc3_statistics python=3.10
 $ conda activate sc3_statistics
 $ conda  config --add channels conda-forge
 
-$ conda install obspy influxdb pygelf
+$ conda install obspy influxdb pygelf pandas bs4
 
 $ pip install get_mseed_data
 

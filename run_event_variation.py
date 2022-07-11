@@ -148,7 +148,7 @@ def main():
             event_n_m_df = event_variation.create_network_magnitude_df(event_n_m)
 
 
-            print(event_n_m_df.head(10))
+            #print(event_n_m_df.head(10))
 
             variation_fdsn_plotly.generate_plotly_network_magnitud(event_n_m_df)
 
