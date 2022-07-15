@@ -70,15 +70,23 @@ def main():
             influx_client = sc3_statistics.get_influx_client(db_param[db_id]['host'],db_param[db_id]['port'],
                                                              db_param[db_id]['user'],db_param[db_id]['pass'],
                                                              db_param[db_id]['DB_name'])
-
+            
+            influx_df_client = sc3_statistics.get_influx_DF_client(db_param[db_id]['host'],db_param[db_id]['port'],
+                                                             db_param[db_id]['user'],db_param[db_id]['pass'],
+                                                             db_param[db_id]['DB_name'])
         except Exception as e:
             logger.error("Failed to create influx client: %s" %(e))
             raise Exception("Failed to create influx client: %s" %(e))
 
+        ##AGREGAR FUNCION PARA IMPRIMIR RESULTADO EN PANTALLA
+        if run_mode == "SINGLE":
 
-        if run_mode == "ONEDAY":
-            
-            
+            event_id = sys.argv[2]
+            event = sc3_statistics.get_event_by_id(fdsn_client,event_id)
+            print(event)
+
+        elif run_mode == "ONEDAY":
+
             if len(sys.argv) == 3:
                 logger.info("Running in ONEDAY mode")
                 try:
@@ -87,15 +95,17 @@ def main():
                     
                     logger.info("Get events for: %s %s" %(start_time,end_time) )
                     eventos= sc3_statistics.get_events_by_day(fdsn_client, start_time, end_time)
-                    sc3_statistics.insert_event_2_influxdb(eventos, influx_client)
-                    sc3_statistics.insert_false_picks(eventos,influx_client)
+                    event_df = sc3_statistics.event2dataframe(eventos)
+                    event_df.to_csv('./eventos.csv')
+                    sc3_statistics.insert_events_df(event_df,influx_df_client)
+                    ###sc3_statistics.insert_false_picks(eventos,influx_client)
                 
                 except Exception as e:
                     raise Exception("Error getting days : %s" %str(e))
             else:
-                print(f'USAGE: python {sys.argv[0]} CONFIGURATION_FILE.txt start_date end_date')
-                logger.error("Error in run_mode configured: %s. start_date and end_date needed" %run_mode)
-                raise Exception("Error in run_mode configured: %s. start_date and end_date needed" %run_mode) 
+                print(f'USAGE: python {sys.argv[0]} CONFIGURATION_FILE.txt JUST NEED start_date')
+                logger.error("Error in run_mode configured: %s. JUST NEED start_date " %run_mode)
+                raise Exception("Error in run_mode configured: %s. JUST NEED start_date" %run_mode) 
         
         elif run_mode == "SOMEDAYS":
             
@@ -104,7 +114,6 @@ def main():
                 try:
                     start_date = UTCDateTime(datetime.strptime(sys.argv[2],"%Y-%m-%d"))
                     end_date = UTCDateTime(datetime.strptime(sys.argv[3],"%Y-%m-%d"))
-                    
                     delta = end_date.datetime - start_date.datetime
                     
                     for i in range(delta.days):
@@ -112,8 +121,11 @@ def main():
                         temp_end = temp_start + 86400
                         eventos= sc3_statistics.get_events_by_day(fdsn_client, temp_start, temp_end)
 
-                        #sc3_statistics.insert_false_picks(eventos, influx_client)
-                        sc3_statistics.insert_event_2_influxdb(eventos, influx_client)
+                        event_df = sc3_statistics.event2dataframe(eventos)
+                        sc3_statistics.insert_events_df(event_df,influx_df_client)
+                        sc3_statistics.insert_false_picks(eventos, influx_client)
+                        #sc3_statistics.insert_event_2_influxdb(eventos, influx_client)
+
 
                 except Exception as e:
                     raise Exception("Error getting days : %s" %str(e))

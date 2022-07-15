@@ -3,11 +3,15 @@ Created on Nov 30, 2020
 
 @author: wacero
 '''
+import pandas as pd
 from obspy.clients.fdsn  import Client
 from obspy import UTCDateTime
 from influxdb import InfluxDBClient
 
 from influxdb import DataFrameClient
+
+pd.set_option('display.max_columns',None)
+pd.set_option('display.max_rows',None)
 
 def get_fdsn_client(fdsn_server, fdsn_port):
     """ 
@@ -29,17 +33,36 @@ def get_events_by_day(fdsn_client,start_time,end_time):
     
     :param string fdsn_client: cliente fdsn 
     :param int start_time: hora de inicio 
+    :param int end_time: hora de fin
+    :return obspy.event.catalog 
+    :raises Exception e: Error al obtener eventos
+    """
+    
+    try:
+        return fdsn_client.get_events(orderby="time-asc",starttime=start_time,endtime=end_time,
+                includeallorigins=True, includeallmagnitudes=True, includearrivals=True, includecomments=True)
+        
+    except Exception as e:
+        raise Exception("Error in get_events_by_station_location: %s" %str(e))
+    
+def get_event_by_id(fdsn_client,event_id):
+    """ 
+    Obtiene los eventos por dia 
+    
+    :param string fdsn_client: cliente fdsn 
+    :param int start_time: hora de inicio 
     :param int end_time: hora de finalizacion 
     :return obspy.event.catalog 
     :raises Exception e: Error al obtener eventos
     """
     
     try:
-        return fdsn_client.get_events(orderby="time-asc",starttime=start_time,endtime=end_time,includearrivals=True,includeallorigins=True,includecomments=True)
+        return fdsn_client.get_events(eventid=event_id,includearrivals=True,includeallorigins=True,includecomments=True)
         
     except Exception as e:
         raise Exception("Error in get_events_by_station_location: %s" %str(e))
-    
+
+
 def get_influx_client(host,port,user,passw,db_name):
     """  
     Obtiene un cliente influx
@@ -78,6 +101,76 @@ def get_influx_DF_client(host,port,user,passw,db_name):
         raise Exception("Error creating influxdb DataFrame client: %s" %str(e))  
 
 
+def event2dataframe(event_list):
+
+    #author, lat, lon ,depth
+    temp_list = []
+    for event in event_list:
+        event_d = {}
+        event_d["author"] = event.creation_info.author
+        origin = event.preferred_origin() or event.origins[0]
+        event_d['latitude'] = round(origin.latitude,4)
+        event_d['longitude'] = round(origin.longitude,4)
+        event_d['depth'] = round(origin.depth,4)
+        event_d['datetime'] = origin.time.datetime 
+
+        if origin.evaluation_status:
+            orig_eval_status = origin.evaluation_status
+        else:
+            orig_eval_status = None
+        event_d['evaluation_status'] = orig_eval_status
+        
+        if event.magnitudes:
+            magnitude = event.preferred_magnitude() or event.magnitudes[0]
+            magnitude_value = round(magnitude.mag,4)
+            magnitude_type = magnitude.magnitude_type
+        else:
+            magnitude_value= None
+            magnitude_type = None
+        
+        event_d['magnitude_value'] = magnitude_value
+        event_d['magnitude_type'] = magnitude_type
+
+        if event.event_type:
+            e_type=event.event_type
+            event_type=e_type.replace(" ","_")
+        else:
+            #event_type="not_set"  
+            event_type = None
+        
+        event_d['event_type'] = event_type
+
+        if event.comments:
+            comment = event.comments[0].text
+        else:
+            comment = None
+        event_d['comment'] = comment
+
+        earthquake_name = None
+        region_name =  None
+        
+        if event.event_descriptions:
+            for e_d in event.event_descriptions:
+                if e_d.type == 'earthquake name':
+                    earthquake_name = e_d.text
+
+                elif e_d.type == 'region name':
+                    region_name = e_d.text        
+        
+        event_d['earthquake_name'] = earthquake_name
+        event_d['region_name'] = region_name
+        event_d['event_id'] = event['resource_id'].id[-13:]
+        event_d['origins_count'] = len(event.origins)
+        event_d['picks_mean'] = int(len(event.picks)/event_d['origins_count'])
+        #event_d['magnitudes_count'] = len(event.magnitudes)
+        event_d['auxiliar_value'] = 1
+        temp_list.append(event_d)
+    
+    event_df = pd.DataFrame(temp_list)
+    event_df.set_index('datetime',inplace=True)
+    return event_df
+        #print("event_info,eventid=%s,event_type='%s' lat=%s,lon=%s,mag_value=%s,num_orig=%s,mean_pick=%s,aux_val=1  %s" 
+        #                   %(event_id,event_type, lat,lon,magnitude_value,num_origins,mean_picks, time.ns), {'db':'sc3_events_info'},protocol='line' )
 
 def insert_event_2_influxdb(eventos,client_ifxdb):
     """
@@ -145,19 +238,32 @@ def insert_false_picks(events,client_ifxdb):
         if event.event_type=="not existing":
             origin=event.preferred_origin() or event.origins[0]
             time=origin.time
-            print("Evento falso\n")
+            #print("Evento falso\n")
             temp_pick_list=[]
             for i,pick in enumerate(event.picks):
                 temp_pick_list.append(pick.waveform_id.station_code)
             temp_pick_set=set(temp_pick_list)
             for pick in temp_pick_set:
-                print(time,pick,1)
+                #print(time,pick,1)
                 client_ifxdb.write("false_event_info,station_name=%s aux_val=1 %s"
                                    %(pick, time.ns),{'db':'sc3_events_info'},protocol='line')
             
             
             #print("%s\n" %event.origins)    
-    
+
+def insert_events_df(events_df, client_ifxdb):
+
+    measurement = 'event_info'
+    tags = ['evaluation_status','magnitude_type','event_type','comment','earthquake_name','region_name' ]
+
+    try:
+
+        client_ifxdb.write_points(dataframe=events_df,measurement=measurement,
+            tag_columns=tags,protocol='line')
+    except Exception as e:
+        print("Error in insert_events_df: %s" %e)
+
+
 def insert_station_magnitudes(station_mag_pd, client_ifxdb):
 
     """
