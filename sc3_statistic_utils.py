@@ -107,12 +107,29 @@ def event2dataframe(event_list):
     temp_list = []
     for event in event_list:
         event_d = {}
-        event_d["author"] = event.creation_info.author
         origin = event.preferred_origin() or event.origins[0]
         event_d['latitude'] = round(origin.latitude,4)
         event_d['longitude'] = round(origin.longitude,4)
         event_d['depth'] = round(origin.depth,4)
         event_d['datetime'] = origin.time.datetime 
+        event_d["author"] = origin.creation_info.author
+        if origin.method_id:
+            method = origin.method_id.id.split('/')[-1]
+        else:
+            method = None
+        event_d["method"] = None
+        if origin.earth_model_id:
+            model = origin.earth_model_id.id.split('/')[-1]
+        else:
+            model = None
+        event_d["model"] = None
+        if origin.quality:
+            azimuthal_gap = origin.quality.azimuthal_gap
+        else:
+            azimuthal_gap = None
+        event_d["azimuthal_gap"] = azimuthal_gap
+
+        event_d["creation_time"] = origin.time.datetime.isoformat()
 
         if origin.evaluation_status:
             orig_eval_status = origin.evaluation_status
@@ -158,7 +175,7 @@ def event2dataframe(event_list):
                     region_name = e_d.text        
         
         event_d['earthquake_name'] = earthquake_name
-        event_d['region_name'] = region_name
+        #event_d['region_name'] = region_name
         event_d['event_id'] = event['resource_id'].id[-13:]
         event_d['origins_count'] = len(event.origins)
         event_d['picks_mean'] = int(len(event.picks)/event_d['origins_count'])
@@ -171,6 +188,80 @@ def event2dataframe(event_list):
     return event_df
         #print("event_info,eventid=%s,event_type='%s' lat=%s,lon=%s,mag_value=%s,num_orig=%s,mean_pick=%s,aux_val=1  %s" 
         #                   %(event_id,event_type, lat,lon,magnitude_value,num_origins,mean_picks, time.ns), {'db':'sc3_events_info'},protocol='line' )
+
+    
+    
+def insert_false_picks(events,client_ifxdb):
+    """ 
+    Guarda en una base de datos los picados de eventos falsos 
+    
+    :param list events: obspy.core.event 
+    :param influx.client client_ifxdb: cliente ifxdb 
+    """
+    
+    for i, event in enumerate(events):
+        if event.event_type=="not existing":
+            origin=event.preferred_origin() or event.origins[0]
+            time=origin.time
+            #print("Evento falso\n")
+            temp_pick_list=[]
+            for i,pick in enumerate(event.picks):
+                temp_pick_list.append(pick.waveform_id.station_code)
+            temp_pick_set=set(temp_pick_list)
+            for pick in temp_pick_set:
+                #print(time,pick,1)
+                client_ifxdb.write("false_event_info,station_name=%s aux_val=1 %s"
+                                   %(pick, time.ns),{'db':'sc3_events_info'},protocol='line')
+            
+            
+            #print("%s\n" %event.origins)    
+
+def insert_events_df(events_df, client_ifxdb):
+
+    measurement = 'event_info'
+    tags = ['evaluation_status','magnitude_type','event_type','comment',
+            'earthquake_name', 'method', 'model' ]
+
+    try:
+
+        client_ifxdb.write_points(dataframe=events_df,measurement=measurement,
+            tag_columns=tags,protocol='line')
+    except Exception as e:
+        print("Error in insert_events_df: %s" %e)
+
+
+def insert_station_magnitudes(station_mag_pd, client_ifxdb):
+
+    """
+    """
+    #station_mag_pd.set_index('creation_time',inplace=True)
+    measurement = 'magnitude_variation'
+    tags = ['station_id','station_magnitude_type','author','event_id']
+
+    try:
+
+        client_ifxdb.write_points(dataframe=station_mag_pd, measurement=measurement,
+            tag_columns=tags, protocol='line')
+
+    except Exception as e:
+        print("Error in insert_station_magnitudes(): %s" %e)
+
+     
+def insert_network_magnitudes(network_mag_pd, client_ifxdb):
+
+    """
+    """
+    
+    #network_mag_pd.set_index('creation_time',inplace=True)
+    measurement = 'network_magnitude_variation'
+    tags = ['magnitude_type','author','event_id']
+    try:
+
+        client_ifxdb.write_points(dataframe=network_mag_pd, measurement=measurement,tag_columns=tags, protocol='line')
+
+    except Exception as e:
+        print("Error in insert_station_magnitudes(): %s" %e)
+
 
 def insert_event_2_influxdb(eventos,client_ifxdb):
     """
@@ -224,74 +315,4 @@ def insert_event_2_influxdb(eventos,client_ifxdb):
         
         client_ifxdb.write("event_info,eventid=%s,event_type='%s' lat=%s,lon=%s,mag_value=%s,num_orig=%s,mean_pick=%s,aux_val=1  %s" 
                            %(event_id,event_type, lat,lon,magnitude_value,num_origins,mean_picks, time.ns), {'db':'sc3_events_info'},protocol='line' )
-        
     
-def insert_false_picks(events,client_ifxdb):
-    """ 
-    Guarda en una base de datos los picados de eventos falsos 
-    
-    :param list events: obspy.core.event 
-    :param influx.client client_ifxdb: cliente ifxdb 
-    """
-    
-    for i, event in enumerate(events):
-        if event.event_type=="not existing":
-            origin=event.preferred_origin() or event.origins[0]
-            time=origin.time
-            #print("Evento falso\n")
-            temp_pick_list=[]
-            for i,pick in enumerate(event.picks):
-                temp_pick_list.append(pick.waveform_id.station_code)
-            temp_pick_set=set(temp_pick_list)
-            for pick in temp_pick_set:
-                #print(time,pick,1)
-                client_ifxdb.write("false_event_info,station_name=%s aux_val=1 %s"
-                                   %(pick, time.ns),{'db':'sc3_events_info'},protocol='line')
-            
-            
-            #print("%s\n" %event.origins)    
-
-def insert_events_df(events_df, client_ifxdb):
-
-    measurement = 'event_info'
-    tags = ['evaluation_status','magnitude_type','event_type','comment','earthquake_name','region_name' ]
-
-    try:
-
-        client_ifxdb.write_points(dataframe=events_df,measurement=measurement,
-            tag_columns=tags,protocol='line')
-    except Exception as e:
-        print("Error in insert_events_df: %s" %e)
-
-
-def insert_station_magnitudes(station_mag_pd, client_ifxdb):
-
-    """
-    """
-    #station_mag_pd.set_index('creation_time',inplace=True)
-    measurement = 'magnitude_variation'
-    tags = ['station_id','station_magnitude_type','author','event_id']
-
-    try:
-
-        client_ifxdb.write_points(dataframe=station_mag_pd, measurement=measurement,
-            tag_columns=tags, protocol='line')
-
-    except Exception as e:
-        print("Error in insert_station_magnitudes(): %s" %e)
-
-     
-def insert_network_magnitudes(network_mag_pd, client_ifxdb):
-
-    """
-    """
-    
-    #network_mag_pd.set_index('creation_time',inplace=True)
-    measurement = 'network_magnitude_variation'
-    tags = ['magnitude_type','author','event_id']
-    try:
-
-        client_ifxdb.write_points(dataframe=network_mag_pd, measurement=measurement,tag_columns=tags, protocol='line')
-
-    except Exception as e:
-        print("Error in insert_station_magnitudes(): %s" %e)

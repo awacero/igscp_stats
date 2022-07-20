@@ -83,7 +83,7 @@ def main():
 
             event_id = sys.argv[2]
             event = sc3_statistics.get_event_by_id(fdsn_client,event_id)
-            print(event)
+            print(event[0].preferred_origin().creation_info.creation_time.datetime)
 
         elif run_mode == "ONEDAY":
 
@@ -96,9 +96,9 @@ def main():
                     logger.info("Get events for: %s %s" %(start_time,end_time) )
                     eventos= sc3_statistics.get_events_by_day(fdsn_client, start_time, end_time)
                     event_df = sc3_statistics.event2dataframe(eventos)
-                    event_df.to_csv('./eventos.csv')
+                    #event_df.to_csv('./eventos.csv')
                     sc3_statistics.insert_events_df(event_df,influx_df_client)
-                    ###sc3_statistics.insert_false_picks(eventos,influx_client)
+                    sc3_statistics.insert_false_picks(eventos,influx_client)
                 
                 except Exception as e:
                     raise Exception("Error getting days : %s" %str(e))
