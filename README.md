@@ -22,13 +22,15 @@ $ pip install get_mseed_data
 ``` bash
 
 [RUN_MODE]
-mode= SOMEDAYS | ONEDAY
+mode= SINGLE | ONEDAY | SOMEDAYS
 data_target = STDOUT | DB 
 
 ```
 
 ## Execute 
 ```
+$ python ./run_event_stats.py ./config_event_stats_single.txt igepn2021zqko
+
 ```
 
 # Run event magnitude stats
