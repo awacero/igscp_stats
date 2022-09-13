@@ -20,7 +20,14 @@ if gmutils.check_file("./config/logging.ini"):
 
 
 def main():
-    
+    """
+    Insert events information in a timeseries database that will be plotted using grafana or plotly 
+    Do the following tasks
+    Check input arguments are suplied
+
+    """
+
+
     is_error = False
     
     if len(sys.argv) == 1:
