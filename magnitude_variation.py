@@ -1,19 +1,16 @@
 
 import fnmatch
 import os, sys
-from types import NoneType
-
-from matplotlib import pyplot as plt
 import pandas as pd
+import zlib
+import numpy as np
+
+from types import NoneType
+from matplotlib import pyplot as plt
 from obspy.io.seiscomp import event 
 from sqlalchemy.sql.expression import column
-
 from bs4 import BeautifulSoup as bs
-
 from obspy import Catalog, UTCDateTime
-import zlib
-
-import numpy as np
 
 pd.set_option('display.max_rows',None)
 pd.set_option('display.max_columns',None)

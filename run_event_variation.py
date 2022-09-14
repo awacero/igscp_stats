@@ -1,22 +1,18 @@
-from csv import excel_tab
 import os, sys
 import logging, logging.config
+import magnitude_variation
+import variation_fdsn_plotly
+import event_stats
 
-from datetime import datetime
-from datetime import timedelta
 from get_mseed_data import get_mseed
 from get_mseed_data import get_mseed_utils as gmutils
-
-import event_variation
-import variation_fdsn_plotly
-import pandas as pd 
 from obspy import UTCDateTime
-import sc3_statistic_utils as sc3_statistics
+
 
 if gmutils.check_file("./config/logging.ini"):
     
     logging.config.fileConfig('./config/logging.ini', disable_existing_loggers=False)
-    logger=logging.getLogger('run_sc3_statistics')
+    logger=logging.getLogger('run_event_stats')
 
 
 
@@ -24,40 +20,40 @@ def scevtlog2influx(events_path, influx_df_client):
 
     event_list = [] 
     event_network_mag_list =[]
-    file_list = event_variation.create_zip_list(events_path)
+    file_list = magnitude_variation.create_zip_list(events_path)
     file_list.sort()
 
     for file_zip in file_list[1:]:
         try:
-            event_list.append(event_variation.zip2catalog(file_zip))
+            event_list.append(magnitude_variation.zip2catalog(file_zip))
         except Exception as e:
             print("Error in append file: %s" %e)
             pass
 
     for e in event_list:
         try:
-            event_network_mag_list += event_variation.get_network_magnitude(e)
+            event_network_mag_list += magnitude_variation.get_network_magnitude(e)
         except  Exception as e:
             print("Error in get_network_magnitude: %s" %e)
             pass
 
     for e in event_list:
         try:
-            event_variation.add_event_info2station_magnitude(e)
+            magnitude_variation.add_event_info2station_magnitude(e)
         except Exception as e:
             print("Error in add_event_info2station_magnitude: %s" %e)
 
             pass
     
-    station_mag_df = event_variation.create_station_magnitude_df(event_list)           
-    event_network_mag_df = event_variation.create_network_magnitude_df(event_network_mag_list)
+    station_mag_df = magnitude_variation.create_station_magnitude_df(event_list)           
+    event_network_mag_df = magnitude_variation.create_network_magnitude_df(event_network_mag_list)
     
     logger.info("Write data to influxdb")
     #print(station_mag_df.)
     #print(event_network_mag_df.head(10))
     #print(event_network_mag_df.mag.describe())
-    sc3_statistics.insert_station_magnitudes(station_mag_df,influx_df_client)
-    sc3_statistics.insert_network_magnitudes(event_network_mag_df ,influx_df_client)
+    event_stats.insert_station_magnitudes(station_mag_df,influx_df_client)
+    event_stats.insert_network_magnitudes(event_network_mag_df ,influx_df_client)
 
 
 def main():
@@ -108,11 +104,11 @@ def main():
 
         try:
             logger.info("Trying to create influx DF client and influx client")
-            influx_df_client = sc3_statistics.get_influx_DF_client(db_param[db_id]['host'],db_param[db_id]['port'],
+            influx_df_client = event_stats.get_influx_DF_client(db_param[db_id]['host'],db_param[db_id]['port'],
                                                              db_param[db_id]['user'],db_param[db_id]['pass'],
                                                              db_param[db_id]['DB_name'])
 
-            influx_client = sc3_statistics.get_influx_client(db_param[db_id]['host'],db_param[db_id]['port'],
+            influx_client = event_stats.get_influx_client(db_param[db_id]['host'],db_param[db_id]['port'],
                                                              db_param[db_id]['user'],db_param[db_id]['pass'],
                                                              db_param[db_id]['DB_name'])
 
@@ -127,9 +123,9 @@ def main():
             event_id = sys.argv[2]
             event = variation_fdsn_plotly.get_event_from_fdsnws(fdsn_client,event_id)
 
-            event_n_m = event_variation.get_network_magnitude(event[0])
+            event_n_m = magnitude_variation.get_network_magnitude(event[0])
 
-            event_n_m_df = event_variation.create_network_magnitude_df(event_n_m)
+            event_n_m_df = magnitude_variation.create_network_magnitude_df(event_n_m)
 
 
             print(event_n_m_df.head(10))
@@ -143,9 +139,9 @@ def main():
             
             event = variation_fdsn_plotly.get_event_from_fdsnws(fdsn_client,event_id)
 
-            event_n_m = event_variation.get_network_magnitude(event[0])
+            event_n_m = magnitude_variation.get_network_magnitude(event[0])
 
-            event_n_m_df = event_variation.create_network_magnitude_df(event_n_m)
+            event_n_m_df = magnitude_variation.create_network_magnitude_df(event_n_m)
 
 
             #print(event_n_m_df.head(10))

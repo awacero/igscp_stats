@@ -90,8 +90,8 @@ def main():
         if run_mode == "SINGLE":
 
             event_id = sys.argv[2]
-            event = event_stats.get_event_by_id(fdsn_client,event_id)
-            
+            events = event_stats.get_event_by_id(fdsn_client,event_id)
+            event_df =event_stats.event2dataframe(events)
 
         elif run_mode == "ONEDAY":
 
@@ -102,12 +102,9 @@ def main():
                     end_time = UTCDateTime(start_time + 86400).strftime("%Y-%m-%d 00:00")
                     
                     logger.info("Get events for: %s %s" %(start_time,end_time) )
-                    eventos= event_stats.get_events_by_day(fdsn_client, start_time, end_time)
-                    event_df = event_stats.event2dataframe(eventos)
-                    #event_df.to_csv('./eventos.csv')
-                    event_stats.insert_events_df(event_df,influx_df_client)
-                    event_stats.insert_false_picks(eventos,influx_client)
-                
+                    events= event_stats.get_events_by_day(fdsn_client, start_time, end_time)
+                    event_df = event_stats.event2dataframe(events)
+              
                 except Exception as e:
                     raise Exception("Error getting days : %s" %str(e))
             else:
@@ -127,13 +124,8 @@ def main():
                     for i in range(delta.days):
                         temp_start = UTCDateTime(start_date + timedelta(days=i))
                         temp_end = temp_start + 86400
-                        eventos= event_stats.get_events_by_day(fdsn_client, temp_start, temp_end)
-
-                        event_df = event_stats.event2dataframe(eventos)
-                        event_stats.insert_events_df(event_df,influx_df_client)
-                        event_stats.insert_false_picks(eventos, influx_client)
-                        #event_stats.insert_event_2_influxdb(eventos, influx_client)
-
+                        events= event_stats.get_events_by_day(fdsn_client, temp_start, temp_end)
+                        event_df = event_stats.event2dataframe(events)
 
                 except Exception as e:
                     raise Exception("Error getting days : %s" %str(e))
@@ -142,7 +134,15 @@ def main():
                 print(f'USAGE: python {sys.argv[0]} CONFIGURATION_FILE.txt start_date [end_date]')                 
 
         if data_target == "STDOUT":
-            print(event)
+            print(event_df)
+        
+        elif data_target == "DB":
+            event_stats.insert_events_df(event_df,influx_df_client)
+            event_stats.insert_false_picks(events, influx_client)
+            #event_stats.insert_event_2_influxdb(eventos, influx_client)
+        elif data_target == "CSV":
+            event_df.to_csv('./events.csv')
+
 
     if is_error:
         logger.info(f'Usage: python {sys.argv[0]} configuration_file.txt start_date [end_date]')

@@ -4,11 +4,16 @@ Created on Nov 30, 2020
 @author: wacero
 '''
 import pandas as pd
+import logging
 from obspy.clients.fdsn  import Client
 from obspy import UTCDateTime
 from influxdb import InfluxDBClient
 
 from influxdb import DataFrameClient
+
+
+
+
 
 pd.set_option('display.max_columns',None)
 pd.set_option('display.max_rows',None)
@@ -227,7 +232,7 @@ def insert_events_df(events_df, client_ifxdb):
         client_ifxdb.write_points(dataframe=events_df,measurement=measurement,
             tag_columns=tags,protocol='line')
     except Exception as e:
-        print("Error in insert_events_df: %s" %e)
+        logger.error("Error in insert_events_df: %s" %e)
 
 
 def insert_station_magnitudes(station_mag_pd, client_ifxdb):
@@ -244,7 +249,7 @@ def insert_station_magnitudes(station_mag_pd, client_ifxdb):
             tag_columns=tags, protocol='line')
 
     except Exception as e:
-        print("Error in insert_station_magnitudes(): %s" %e)
+        logging.error("Error in insert_station_magnitudes(): %s" %e)
 
      
 def insert_network_magnitudes(network_mag_pd, client_ifxdb):
@@ -260,7 +265,7 @@ def insert_network_magnitudes(network_mag_pd, client_ifxdb):
         client_ifxdb.write_points(dataframe=network_mag_pd, measurement=measurement,tag_columns=tags, protocol='line')
 
     except Exception as e:
-        print("Error in insert_station_magnitudes(): %s" %e)
+        logging.error("Error in insert_station_magnitudes(): %s" %e)
 
 
 def insert_event_2_influxdb(eventos,client_ifxdb):
