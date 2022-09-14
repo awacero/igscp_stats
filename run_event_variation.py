@@ -1,7 +1,7 @@
 import os, sys
 import logging, logging.config
 import magnitude_variation
-import variation_fdsn_plotly
+import magnitude_variation_plotly
 import event_stats
 
 from get_mseed_data import get_mseed
@@ -49,7 +49,6 @@ def scevtlog2influx(events_path, influx_df_client):
     event_network_mag_df = magnitude_variation.create_network_magnitude_df(event_network_mag_list)
     
     logger.info("Write data to influxdb")
-    #print(station_mag_df.)
     #print(event_network_mag_df.head(10))
     #print(event_network_mag_df.mag.describe())
     event_stats.insert_station_magnitudes(station_mag_df,influx_df_client)
@@ -121,37 +120,24 @@ def main():
         if run_mode == "FDSN":
             print("start of FDSN mode. Can not recover station magnitudes")
             event_id = sys.argv[2]
-            event = variation_fdsn_plotly.get_event_from_fdsnws(fdsn_client,event_id)
-
+            event = magnitude_variation_plotly.get_event_from_fdsnws(fdsn_client,event_id)
             event_n_m = magnitude_variation.get_network_magnitude(event[0])
-
             event_n_m_df = magnitude_variation.create_network_magnitude_df(event_n_m)
-
-
-            print(event_n_m_df.head(10))
-
-            variation_fdsn_plotly.generate_plotly_network_magnitud(event_n_m_df)
+            magnitude_variation_plotly.generate_plotly_network_magnitud(event_n_m_df)
         
         if run_mode == "LOCAL":
             print("start of LOCAL mode. Do not send to INFLUX")
             
-            events_path = sys.argv[2]
-            
-            event = variation_fdsn_plotly.get_event_from_fdsnws(fdsn_client,event_id)
-
+            events_path = sys.argv[2]      
+            event = magnitude_variation_plotly.get_event_from_fdsnws(fdsn_client,event_id)
             event_n_m = magnitude_variation.get_network_magnitude(event[0])
-
             event_n_m_df = magnitude_variation.create_network_magnitude_df(event_n_m)
-
-
             #print(event_n_m_df.head(10))
-
-            variation_fdsn_plotly.generate_plotly_network_magnitud(event_n_m_df)
+            magnitude_variation_plotly.generate_plotly_network_magnitud(event_n_m_df)
 
         elif run_mode == "SINGLE":
 
             events_path = sys.argv[2]
-
             scevtlog2influx(events_path,influx_df_client)
             
         elif run_mode == "LIST":
