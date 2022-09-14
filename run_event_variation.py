@@ -132,8 +132,8 @@ def main():
             
             events_path = sys.argv[2]      
             station_mag_df, network_mag_df = scevtlog2df(events_path)
-            magnitude_variation_plotly.generate_plotly_network_magnitud(network_mag_df)
-
+            magnitude_variation_plotly.generate_plotly_magnitude_variation(network_mag_df,station_mag_df)
+            
         elif run_mode == "SINGLE":
 
             events_path = sys.argv[2]
