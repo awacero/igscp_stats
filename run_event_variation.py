@@ -16,7 +16,7 @@ if gmutils.check_file("./config/logging.ini"):
 
 
 
-def scevtlog2influx(events_path, influx_df_client):
+def scevtlog2df(events_path):
 
     event_list = [] 
     event_network_mag_list =[]
@@ -51,8 +51,10 @@ def scevtlog2influx(events_path, influx_df_client):
     logger.info("Write data to influxdb")
     #print(event_network_mag_df.head(10))
     #print(event_network_mag_df.mag.describe())
-    event_stats.insert_station_magnitudes(station_mag_df,influx_df_client)
-    event_stats.insert_network_magnitudes(event_network_mag_df ,influx_df_client)
+
+    #event_stats.insert_station_magnitudes(station_mag_df,influx_df_client)
+    #event_stats.insert_network_magnitudes(event_network_mag_df ,influx_df_client)
+    return  station_mag_df,event_network_mag_df
 
 
 def main():
@@ -126,19 +128,22 @@ def main():
             magnitude_variation_plotly.generate_plotly_network_magnitud(event_n_m_df)
         
         if run_mode == "LOCAL":
-            print("start of LOCAL mode. Do not send to INFLUX")
+            print("start of LOCAL mode. Do not send to INFLUX.Plot using PLOTLY")
             
             events_path = sys.argv[2]      
-            event = magnitude_variation_plotly.get_event_from_fdsnws(fdsn_client,event_id)
-            event_n_m = magnitude_variation.get_network_magnitude(event[0])
-            event_n_m_df = magnitude_variation.create_network_magnitude_df(event_n_m)
+            #event = magnitude_variation_plotly.get_event_from_fdsnws(fdsn_client,event_id)
+            station_mag_df, network_mag_df = scevtlog2df(events_path)
+            #event_n_m = magnitude_variation.get_network_magnitude(event[0])
+            #event_n_m_df = magnitude_variation.create_network_magnitude_df(event_n_m)
             #print(event_n_m_df.head(10))
-            magnitude_variation_plotly.generate_plotly_network_magnitud(event_n_m_df)
+            magnitude_variation_plotly.generate_plotly_network_magnitud(network_mag_df)
 
         elif run_mode == "SINGLE":
 
             events_path = sys.argv[2]
-            scevtlog2influx(events_path,influx_df_client)
+            station_mag_df, network_mag_df = scevtlog2df(events_path)
+            event_stats.insert_station_magnitudes(station_mag_df,influx_df_client)
+            event_stats.insert_network_magnitudes(network_mag_df ,influx_df_client)
             
         elif run_mode == "LIST":
             
@@ -152,7 +157,10 @@ def main():
             
             for events_path in events_path_list:
                 logger.info("Start of event:%s" %events_path)
-                scevtlog2influx(events_path, influx_df_client)
+                #scevtlog2df(events_path, influx_df_client)
+                station_mag_df, network_mag_df = scevtlog2df(events_path)
+                event_stats.insert_station_magnitudes(station_mag_df,influx_df_client)
+                event_stats.insert_network_magnitudes(network_mag_df ,influx_df_client)
                 ##CALL CREATE FUNCTION
 
 

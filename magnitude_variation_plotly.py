@@ -1,7 +1,6 @@
  # -*- coding: utf-8 -*-
 
 #"""
-import event_variation 
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
