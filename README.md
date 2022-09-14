@@ -40,12 +40,13 @@ $ python ./run_event_stats.py ./config_event_stats_single.txt igepn2021zqko
 ``` bash
 
 [RUN_MODE]
-mode= SOMEDAYS | ONEDAY
+mode= FDSN | LOCAL | SINGLE | LIST 
 data_target = STDOUT | DB 
 
 ```
 ## Execute 
 ```
+python ./run_event_variation.py ./config_variation.txt ./PATH_TO_EVENT/
 ```
 
 
