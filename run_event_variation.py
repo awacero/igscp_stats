@@ -131,11 +131,7 @@ def main():
             print("start of LOCAL mode. Do not send to INFLUX.Plot using PLOTLY")
             
             events_path = sys.argv[2]      
-            #event = magnitude_variation_plotly.get_event_from_fdsnws(fdsn_client,event_id)
             station_mag_df, network_mag_df = scevtlog2df(events_path)
-            #event_n_m = magnitude_variation.get_network_magnitude(event[0])
-            #event_n_m_df = magnitude_variation.create_network_magnitude_df(event_n_m)
-            #print(event_n_m_df.head(10))
             magnitude_variation_plotly.generate_plotly_network_magnitud(network_mag_df)
 
         elif run_mode == "SINGLE":
@@ -157,15 +153,10 @@ def main():
             
             for events_path in events_path_list:
                 logger.info("Start of event:%s" %events_path)
-                #scevtlog2df(events_path, influx_df_client)
                 station_mag_df, network_mag_df = scevtlog2df(events_path)
                 event_stats.insert_station_magnitudes(station_mag_df,influx_df_client)
                 event_stats.insert_network_magnitudes(network_mag_df ,influx_df_client)
-                ##CALL CREATE FUNCTION
 
-
-            #print(station_mag_df.head(10))
-            #print(event_network_mag_df.head(10))
 
     if is_error:
         logger.info(f'Usage: python {sys.argv[0]} configuration_file.txt start_date [end_date]')
