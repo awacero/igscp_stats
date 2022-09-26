@@ -49,6 +49,13 @@ data_target = STDOUT | DB
 python ./run_event_variation.py ./config_variation.txt ./PATH_TO_EVENT/
 ```
 
+## Example of an event plotted locally 
 ![example of an event plotted locally ](./images/plotly_local.png)
+
+
+## Example of an event visualized using Grafana
+
+![example of an event plotted locally ](./images/grafana_dashboard.png)
+
 
 
