@@ -130,9 +130,13 @@ def main():
         if run_mode == "LOCAL":
             print("start of LOCAL mode. Do not send to INFLUX.Plot using PLOTLY")
             
-            events_path = sys.argv[2]      
-            station_mag_df, network_mag_df = scevtlog2df(events_path)
-            magnitude_variation_plotly.generate_plotly_magnitude_variation(network_mag_df,station_mag_df)
+            if len(sys.argv) == 3:
+                events_path = sys.argv[2]      
+                station_mag_df, network_mag_df = scevtlog2df(events_path)
+                magnitude_variation_plotly.generate_plotly_magnitude_variation(network_mag_df,station_mag_df)
+            else:
+                print("LACKS PATH TO XML")
+                print(f'USAGE: python {sys.argv[0]} CONFIGURATION_FILE.txt /PATH/TO/XML') 
             
         elif run_mode == "SINGLE":
 
@@ -159,8 +163,8 @@ def main():
 
 
     if is_error:
-        logger.info(f'Usage: python {sys.argv[0]} configuration_file.txt start_date [end_date]')
-        print(f'USAGE: python {sys.argv[0]} CONFIGURATION_FILE.txt start_date [end_date]') 
+        logger.info(f'Usage: python {sys.argv[0]} configuration_file.txt /PATH/TO/XML')
+        print(f'USAGE: python {sys.argv[0]} CONFIGURATION_FILE.txt /PATH/TO/XML') 
 
 
 main()
