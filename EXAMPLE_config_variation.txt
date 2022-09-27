@@ -1,0 +1,15 @@
+[RUN_MODE]
+mode = LOCAL
+data_target = DB
+
+[DATABASE]
+id = INFLUX
+file_path = ./config/db_configuration.json
+
+[FDSN]
+id = FDSN_SC4
+file_path = ./config/fdsn_configuration.json
+
+[LOG_FILE]
+log_file_name=igscp_stats.log
+

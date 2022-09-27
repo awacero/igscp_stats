@@ -1,0 +1,15 @@
+[RUN_MODE]
+mode = SINGLE
+data_target = STDOUT
+
+[DATABASE]
+id = INFLUX
+file_path = ./config/db_configuration.json
+
+[FDSN]
+id = FDSN_SC3
+file_path = ./config/fdsn_configuration.json
+
+[LOG_FILE]
+log_file_name=sc3_stats.log
+
