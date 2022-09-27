@@ -12,7 +12,7 @@ def get_event_from_fdsnws(fdsn_client, event_id):
 
     """
     It gets an event from FDSN Web Services using an event_id
-    and a FDSN client.
+    and a FDSN client..
 
     :param fdsn_client: fdsn client object
     :param event_id: event identifier
