@@ -46,7 +46,7 @@ data_target = STDOUT | DB
 ```
 ## Execute 
 ```
-python ./run_event_variation.py ./config_variation.txt ./PATH_TO_EVENT/
+python ./run_event_variation.py ./config_variation.txt ./data/igepn2022sxmj
 ```
 
 ## Example of an event plotted locally 
