@@ -86,36 +86,50 @@ def main():
             logger.error("Error getting parameters: %s" %(e))
             raise Exception("Error getting parameters: %s" %(e))
             
+
+        if run_mode == "LOCAL":
+            print("start of LOCAL mode. Do not send to INFLUX.Plot using PLOTLY")
             
-        try:
-            db_param=gmutils.read_config_file(db_config_file)
-            mseed_server_param=gmutils.read_config_file(fdsn_server_config_file)
-        except Exception as e:
-            logger.error("Error reading configuration file: %s" %str(e))
-            raise Exception("Error reading configuration file: %s" %str(e))
+            if len(sys.argv) == 3:
+                events_path = sys.argv[2]      
+                station_mag_df, network_mag_df = scevtlog2df(events_path)
+                magnitude_variation_plotly.generate_plotly_magnitude_variation(network_mag_df,station_mag_df)
+            else:
+                print("LACKS PATH TO XML")
+                print(f'USAGE: python {sys.argv[0]} CONFIGURATION_FILE.txt /PATH/TO/XML') 
 
 
-        try:
-            logger.info("Trying to create FDSN client")
-            fdsn_client = get_mseed.choose_service(mseed_server_param[fdsn_id])
+        else:
 
-        except Exception as e:
-            logger.error("Failed to create fdsn client: %s" %str(e))
-            raise Exception("Failed to create fdsn client: %s" %str(e))
+            try:
+                db_param=gmutils.read_config_file(db_config_file)
+                mseed_server_param=gmutils.read_config_file(fdsn_server_config_file)
+            except Exception as e:
+                logger.error("Error reading configuration file: %s" %str(e))
+                raise Exception("Error reading configuration file: %s" %str(e))
 
-        try:
-            logger.info("Trying to create influx DF client and influx client")
-            influx_df_client = event_stats.get_influx_DF_client(db_param[db_id]['host'],db_param[db_id]['port'],
-                                                             db_param[db_id]['user'],db_param[db_id]['pass'],
-                                                             db_param[db_id]['DB_name'])
 
-            influx_client = event_stats.get_influx_client(db_param[db_id]['host'],db_param[db_id]['port'],
-                                                             db_param[db_id]['user'],db_param[db_id]['pass'],
-                                                             db_param[db_id]['DB_name'])
+            try:
+                logger.info("Trying to create FDSN client")
+                fdsn_client = get_mseed.choose_service(mseed_server_param[fdsn_id])
 
-        except Exception as e:
-            logger.error("Failed to create influx client: %s" %(e))
-            raise Exception("Failed to create influx client: %s" %(e))
+            except Exception as e:
+                logger.error("Failed to create fdsn client: %s" %str(e))
+                raise Exception("Failed to create fdsn client: %s" %str(e))
+
+            try:
+                logger.info("Trying to create influx DF client and influx client")
+                influx_df_client = event_stats.get_influx_DF_client(db_param[db_id]['host'],db_param[db_id]['port'],
+                                                                db_param[db_id]['user'],db_param[db_id]['pass'],
+                                                                db_param[db_id]['DB_name'])
+
+                influx_client = event_stats.get_influx_client(db_param[db_id]['host'],db_param[db_id]['port'],
+                                                                db_param[db_id]['user'],db_param[db_id]['pass'],
+                                                                db_param[db_id]['DB_name'])
+
+            except Exception as e:
+                logger.error("Failed to create influx client: %s" %(e))
+                raise Exception("Failed to create influx client: %s" %(e))
 
         #este modo se agregó para poder generar información 
         # apartir de datos desde FDSN
@@ -127,16 +141,6 @@ def main():
             event_n_m_df = magnitude_variation.create_network_magnitude_df(event_n_m)
             magnitude_variation_plotly.generate_plotly_network_magnitud(event_n_m_df)
         
-        if run_mode == "LOCAL":
-            print("start of LOCAL mode. Do not send to INFLUX.Plot using PLOTLY")
-            
-            if len(sys.argv) == 3:
-                events_path = sys.argv[2]      
-                station_mag_df, network_mag_df = scevtlog2df(events_path)
-                magnitude_variation_plotly.generate_plotly_magnitude_variation(network_mag_df,station_mag_df)
-            else:
-                print("LACKS PATH TO XML")
-                print(f'USAGE: python {sys.argv[0]} CONFIGURATION_FILE.txt /PATH/TO/XML') 
             
         elif run_mode == "SINGLE":
 
