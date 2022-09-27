@@ -1,0 +1,2104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<seiscomp xmlns="http://geofon.gfz-potsdam.de/ns/seiscomp3-schema/0.10" version="0.10">
+  <EventParameters>
+    <pick publicID="Pick/20220927000534.058836.48617">
+      <time>
+        <value>2022-09-27T00:00:39.425348Z</value>
+      </time>
+      <waveformID networkCode="PE" stationCode="SNIG" channelCode="BHZ"/>
+      <phaseHint>P</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.059031Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.059201.48618">
+      <time>
+        <value>2022-09-27T00:00:52.348804Z</value>
+      </time>
+      <waveformID networkCode="PE" stationCode="SNIG" channelCode="BHN"/>
+      <phaseHint>S</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.059284Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.059414.48619">
+      <time>
+        <value>2022-09-27T00:00:49.674844Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="MCRA" channelCode="BLN"/>
+      <phaseHint>P</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.059506Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.059605.48620">
+      <time>
+        <value>2022-09-27T00:01:10.415891Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="MCRA" channelCode="BLN"/>
+      <phaseHint>S</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.059688Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.059873.48621">
+      <time>
+        <value>2022-09-27T00:01:03.712205Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="ARNL" channelCode="HHZ"/>
+      <phaseHint>P</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.059956Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.060049.48622">
+      <time>
+        <value>2022-09-27T00:01:33.467914Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="ARNL" channelCode="HHN"/>
+      <phaseHint>S</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.060131Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.060232.48623">
+      <time>
+        <value>2022-09-27T00:01:06.534532Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="SUSE" channelCode="HHN"/>
+      <phaseHint>P</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.060315Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.060428.48624">
+      <time>
+        <value>2022-09-27T00:01:40.492196Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="SUSE" channelCode="HHN"/>
+      <phaseHint>S</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.060512Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.060622.48625">
+      <time>
+        <value>2022-09-27T00:01:07.871423Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="PCRA" channelCode="HHZ"/>
+      <phaseHint>P</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.060709Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.060805.48626">
+      <time>
+        <value>2022-09-27T00:01:41.926805Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="PCRA" channelCode="HHN"/>
+      <phaseHint>S</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.060887Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.060987.48627">
+      <time>
+        <value>2022-09-27T00:01:11.807824Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="BOSC" channelCode="HHN"/>
+      <phaseHint>P</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.06107Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.061168.48628">
+      <time>
+        <value>2022-09-27T00:01:33.198076Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="MONB" channelCode="HHN"/>
+      <phaseHint>P</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.061251Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.061348.48629">
+      <time>
+        <value>2022-09-27T00:01:31.882615Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="JSCH" channelCode="HHN"/>
+      <phaseHint>P</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.061439Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.061611.48630">
+      <time>
+        <value>2022-09-27T00:01:35.718126Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="PORT" channelCode="HHN"/>
+      <phaseHint>P</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.061693Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.061799.48631">
+      <time>
+        <value>2022-09-27T00:01:36.436075Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="BMAS" channelCode="HHZ"/>
+      <phaseHint>P</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.061883Z</creationTime>
+      </creationInfo>
+    </pick>
+    <pick publicID="Pick/20220927000534.061985.48632">
+      <time>
+        <value>2022-09-27T00:01:43.552215Z</value>
+      </time>
+      <waveformID networkCode="EC" stationCode="BPAT" channelCode="BHN"/>
+      <phaseHint>P</phaseHint>
+      <evaluationMode>manual</evaluationMode>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:34.062068Z</creationTime>
+      </creationInfo>
+    </pick>
+    <amplitude publicID="Amplitude/20220927000555.148429.48749">
+      <type>Mjma</type>
+      <amplitude>
+        <value>2.514188999</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:00:53.02Z</reference>
+        <begin>-18.6</begin>
+        <end>43.82</end>
+      </timeWindow>
+      <snr>10.14975673</snr>
+      <pickID>Pick/20220927000534.058836.48617</pickID>
+      <waveformID networkCode="PE" stationCode="SNIG" channelCode="BHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.148464Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.247603.48754">
+      <type>Mjma</type>
+      <amplitude>
+        <value>3.71552257</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:13.168393Z</reference>
+        <begin>-28.49</begin>
+        <end>57.53</end>
+      </timeWindow>
+      <snr>3.940490809</snr>
+      <pickID>Pick/20220927000534.059414.48619</pickID>
+      <waveformID networkCode="EC" stationCode="MCRA" channelCode="BLZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.247637Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.502388.48765">
+      <type>Mjma</type>
+      <amplitude>
+        <value>3.376451515</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:35.988393Z</reference>
+        <begin>-37.28</begin>
+        <end>78.94</end>
+      </timeWindow>
+      <snr>15.73189896</snr>
+      <pickID>Pick/20220927000534.059873.48621</pickID>
+      <waveformID networkCode="EC" stationCode="ARNL" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.502423Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.625502.48787">
+      <type>Mjma</type>
+      <amplitude>
+        <value>2.292032648</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:44.568393Z</reference>
+        <begin>-43.03</begin>
+        <end>76.32</end>
+      </timeWindow>
+      <snr>10.76553175</snr>
+      <pickID>Pick/20220927000534.060232.48623</pickID>
+      <waveformID networkCode="EC" stationCode="SUSE" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.625538Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.572871.48776">
+      <type>Mjma</type>
+      <amplitude>
+        <value>1.088434811</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:49.948394Z</reference>
+        <begin>-47.08</begin>
+        <end>78.8</end>
+      </timeWindow>
+      <snr>4.054127979</snr>
+      <pickID>Pick/20220927000534.060622.48625</pickID>
+      <waveformID networkCode="EC" stationCode="PCRA" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.572906Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.598764.48781">
+      <type>Mjma</type>
+      <amplitude>
+        <value>1.039316071</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:54.328393Z</reference>
+        <begin>-47.52</begin>
+        <end>87.83</end>
+      </timeWindow>
+      <snr>5.624882933</snr>
+      <pickID>Pick/20220927000534.060987.48627</pickID>
+      <waveformID networkCode="EC" stationCode="BOSC" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.598799Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.637577.48788">
+      <type>Mjma</type>
+      <amplitude>
+        <value>0.3351943288</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:23.058393Z</reference>
+        <begin>-54.86</begin>
+        <end>124.68</end>
+      </timeWindow>
+      <snr>1.429256447</snr>
+      <pickID>Pick/20220927000534.061168.48628</pickID>
+      <waveformID networkCode="EC" stationCode="MONB" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.637617Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.693801.48796">
+      <type>Mjma</type>
+      <amplitude>
+        <value>0.4486756636</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:58.078393Z</reference>
+        <begin>-91.2</begin>
+        <end>91.02</end>
+      </timeWindow>
+      <snr>1.661875797</snr>
+      <pickID>Pick/20220927000534.061348.48629</pickID>
+      <waveformID networkCode="EC" stationCode="JSCH" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.693835Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.525587.48768">
+      <type>Mjma</type>
+      <amplitude>
+        <value>0.7421513971</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:03:26.038396Z</reference>
+        <begin>-115.32</begin>
+        <end>77.31</end>
+      </timeWindow>
+      <snr>1.696572707</snr>
+      <pickID>Pick/20220927000534.061611.48630</pickID>
+      <waveformID networkCode="EC" stationCode="PORT" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.525622Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.676752.48792">
+      <type>Mjma</type>
+      <amplitude>
+        <value>0.2456005222</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:54.294999Z</reference>
+        <begin>-82.86</begin>
+        <end>110.59</end>
+      </timeWindow>
+      <snr>2.917362711</snr>
+      <pickID>Pick/20220927000534.061799.48631</pickID>
+      <waveformID networkCode="EC" stationCode="BMAS" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.676788Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.563552.48774">
+      <type>Mjma</type>
+      <amplitude>
+        <value>0.6112088888</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:03:00.76Z</reference>
+        <begin>-82.2</begin>
+        <end>111.46</end>
+      </timeWindow>
+      <snr>2.795498339</snr>
+      <pickID>Pick/20220927000534.061985.48632</pickID>
+      <waveformID networkCode="EC" stationCode="BPAT" channelCode="BHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.563587Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.151771.48750">
+      <type>ML</type>
+      <amplitude>
+        <value>8.799254594</value>
+        <lowerUncertainty>1.920173966</lowerUncertainty>
+        <upperUncertainty>1.920173966</upperUncertainty>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:00:53.97Z</reference>
+        <begin>-19.549999</begin>
+        <end>42.87</end>
+      </timeWindow>
+      <pickID>Pick/20220927000534.058836.48617</pickID>
+      <waveformID networkCode="PE" stationCode="SNIG" channelCode="BH"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.151809Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.255062.48755">
+      <type>ML</type>
+      <amplitude>
+        <value>6.423683178</value>
+        <lowerUncertainty>0.878894346</lowerUncertainty>
+        <upperUncertainty>0.878894346</upperUncertainty>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:15.403394Z</reference>
+        <begin>-30.724999</begin>
+        <end>55.295</end>
+      </timeWindow>
+      <pickID>Pick/20220927000534.059414.48619</pickID>
+      <waveformID networkCode="EC" stationCode="MCRA" channelCode="BL"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.255099Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.510132.48766">
+      <type>ML</type>
+      <amplitude>
+        <value>7.25155109</value>
+        <lowerUncertainty>3.334169706</lowerUncertainty>
+        <upperUncertainty>3.334169706</upperUncertainty>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:38.343393Z</reference>
+        <begin>-39.634999</begin>
+        <end>76.585</end>
+      </timeWindow>
+      <pickID>Pick/20220927000534.059873.48621</pickID>
+      <waveformID networkCode="EC" stationCode="ARNL" channelCode="HH"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.510168Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.61982.48785">
+      <type>ML</type>
+      <amplitude>
+        <value>7.408594687</value>
+        <lowerUncertainty>0.9301942345</lowerUncertainty>
+        <upperUncertainty>0.9301942345</upperUncertainty>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:43.243393Z</reference>
+        <begin>-41.704999</begin>
+        <end>77.645</end>
+      </timeWindow>
+      <pickID>Pick/20220927000534.060232.48623</pickID>
+      <waveformID networkCode="EC" stationCode="SUSE" channelCode="HH"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.619854Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.577136.48777">
+      <type>ML</type>
+      <amplitude>
+        <value>1.456868571</value>
+        <lowerUncertainty>0.05015490034</lowerUncertainty>
+        <upperUncertainty>0.05015490034</upperUncertainty>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:47.203395Z</reference>
+        <begin>-44.335</begin>
+        <end>81.545001</end>
+      </timeWindow>
+      <pickID>Pick/20220927000534.060622.48625</pickID>
+      <waveformID networkCode="EC" stationCode="PCRA" channelCode="HH"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.577172Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.592766.48779">
+      <type>ML</type>
+      <amplitude>
+        <value>3.598731643</value>
+        <lowerUncertainty>0.3464895459</lowerUncertainty>
+        <upperUncertainty>0.3464895459</upperUncertainty>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:56.528393Z</reference>
+        <begin>-49.719999</begin>
+        <end>85.63</end>
+      </timeWindow>
+      <pickID>Pick/20220927000534.060987.48627</pickID>
+      <waveformID networkCode="EC" stationCode="BOSC" channelCode="HH"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.592803Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.611233.48783">
+      <type>ML</type>
+      <amplitude>
+        <value>0.2939594168</value>
+        <lowerUncertainty>0.01798976568</lowerUncertainty>
+        <upperUncertainty>0.01798976568</upperUncertainty>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:35.973393Z</reference>
+        <begin>-67.775</begin>
+        <end>87.225</end>
+      </timeWindow>
+      <pickID>Pick/20220927000534.061168.48628</pickID>
+      <waveformID networkCode="EC" stationCode="MONB" channelCode="HH"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.611269Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.688258.48794">
+      <type>ML</type>
+      <amplitude>
+        <value>1.154483789</value>
+        <lowerUncertainty>0.1281732915</lowerUncertainty>
+        <upperUncertainty>0.1281732915</upperUncertainty>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:36.403392Z</reference>
+        <begin>-69.525</begin>
+        <end>85.475001</end>
+      </timeWindow>
+      <pickID>Pick/20220927000534.061348.48629</pickID>
+      <waveformID networkCode="EC" stationCode="JSCH" channelCode="HH"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.688293Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.473671.48761">
+      <type>ML</type>
+      <amplitude>
+        <value>0.3272205411</value>
+        <lowerUncertainty>0.07471327241</lowerUncertainty>
+        <upperUncertainty>0.07471327241</upperUncertainty>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:52.898396Z</reference>
+        <begin>-82.179999</begin>
+        <end>72.82</end>
+      </timeWindow>
+      <pickID>Pick/20220927000534.061611.48630</pickID>
+      <waveformID networkCode="EC" stationCode="PORT" channelCode="HH"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.473708Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.662314.48790">
+      <type>ML</type>
+      <amplitude>
+        <value>0.8603651281</value>
+        <lowerUncertainty>0.05542407203</lowerUncertainty>
+        <upperUncertainty>0.05542407203</upperUncertainty>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:51.119999Z</reference>
+        <begin>-79.684999</begin>
+        <end>75.315001</end>
+      </timeWindow>
+      <pickID>Pick/20220927000534.061799.48631</pickID>
+      <waveformID networkCode="EC" stationCode="BMAS" channelCode="HH"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.66235Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.531843.48769">
+      <type>ML</type>
+      <amplitude>
+        <value>1.164893635</value>
+        <lowerUncertainty>0.2376017553</lowerUncertainty>
+        <upperUncertainty>0.2376017553</upperUncertainty>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:55.94Z</reference>
+        <begin>-77.379999</begin>
+        <end>77.62</end>
+      </timeWindow>
+      <pickID>Pick/20220927000534.061985.48632</pickID>
+      <waveformID networkCode="EC" stationCode="BPAT" channelCode="BH"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.531879Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.146984.48748">
+      <type>MLv</type>
+      <amplitude>
+        <value>3.257391838</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:00:52.98Z</reference>
+        <begin>-18.56</begin>
+        <end>43.86</end>
+      </timeWindow>
+      <snr>143.2347272</snr>
+      <pickID>Pick/20220927000534.058836.48617</pickID>
+      <waveformID networkCode="PE" stationCode="SNIG" channelCode="BHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.147094Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.245129.48753">
+      <type>MLv</type>
+      <amplitude>
+        <value>3.688245547</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:15.178393Z</reference>
+        <begin>-30.5</begin>
+        <end>55.52</end>
+      </timeWindow>
+      <snr>68.31059041</snr>
+      <pickID>Pick/20220927000534.059414.48619</pickID>
+      <waveformID networkCode="EC" stationCode="MCRA" channelCode="BLZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.245167Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.499568.48764">
+      <type>MLv</type>
+      <amplitude>
+        <value>3.739734706</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:36.168393Z</reference>
+        <begin>-37.46</begin>
+        <end>78.76</end>
+      </timeWindow>
+      <snr>115.5426702</snr>
+      <pickID>Pick/20220927000534.059873.48621</pickID>
+      <waveformID networkCode="EC" stationCode="ARNL" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.499606Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.623053.48786">
+      <type>MLv</type>
+      <amplitude>
+        <value>2.272151543</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:47.838393Z</reference>
+        <begin>-46.3</begin>
+        <end>73.05</end>
+      </timeWindow>
+      <snr>157.6817728</snr>
+      <pickID>Pick/20220927000534.060232.48623</pickID>
+      <waveformID networkCode="EC" stationCode="SUSE" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.623092Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.57043.48775">
+      <type>MLv</type>
+      <amplitude>
+        <value>0.8446620511</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:45.798394Z</reference>
+        <begin>-42.93</begin>
+        <end>82.95</end>
+      </timeWindow>
+      <snr>37.15968792</snr>
+      <pickID>Pick/20220927000534.060622.48625</pickID>
+      <waveformID networkCode="EC" stationCode="PCRA" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.570468Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.596291.48780">
+      <type>MLv</type>
+      <amplitude>
+        <value>1.103656923</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:54.528393Z</reference>
+        <begin>-47.72</begin>
+        <end>87.63</end>
+      </timeWindow>
+      <snr>96.61400559</snr>
+      <pickID>Pick/20220927000534.060987.48627</pickID>
+      <waveformID networkCode="EC" stationCode="BOSC" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.596328Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.607282.48782">
+      <type>MLv</type>
+      <amplitude>
+        <value>0.1776183162</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:29.688393Z</reference>
+        <begin>-61.49</begin>
+        <end>93.51</end>
+      </timeWindow>
+      <snr>13.27637128</snr>
+      <pickID>Pick/20220927000534.061168.48628</pickID>
+      <waveformID networkCode="EC" stationCode="MONB" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.607323Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.685695.48793">
+      <type>MLv</type>
+      <amplitude>
+        <value>0.2139677295</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:40.588393Z</reference>
+        <begin>-73.71</begin>
+        <end>81.29</end>
+      </timeWindow>
+      <snr>11.91518375</snr>
+      <pickID>Pick/20220927000534.061348.48629</pickID>
+      <waveformID networkCode="EC" stationCode="JSCH" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.685731Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.468267.48760">
+      <type>MLv</type>
+      <amplitude>
+        <value>0.2096348392</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:45.478396Z</reference>
+        <begin>-74.76</begin>
+        <end>80.24</end>
+      </timeWindow>
+      <snr>7.80336134</snr>
+      <pickID>Pick/20220927000534.061611.48630</pickID>
+      <waveformID networkCode="EC" stationCode="PORT" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.468324Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.657907.48789">
+      <type>MLv</type>
+      <amplitude>
+        <value>0.1530490982</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:47.614999Z</reference>
+        <begin>-76.18</begin>
+        <end>78.82</end>
+      </timeWindow>
+      <snr>6.258189765</snr>
+      <pickID>Pick/20220927000534.061799.48631</pickID>
+      <waveformID networkCode="EC" stationCode="BMAS" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.657944Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.520903.48767">
+      <type>MLv</type>
+      <amplitude>
+        <value>0.3586663329</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:52.26Z</reference>
+        <begin>-73.7</begin>
+        <end>81.3</end>
+      </timeWindow>
+      <snr>9.824486712</snr>
+      <pickID>Pick/20220927000534.061985.48632</pickID>
+      <waveformID networkCode="EC" stationCode="BPAT" channelCode="BHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.520958Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.481363.48762">
+      <type>Ms(BB)</type>
+      <amplitude>
+        <value>1.959292715e-05</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:36.118393Z</reference>
+        <begin>-37.41</begin>
+        <end>67.21</end>
+      </timeWindow>
+      <period>
+        <value>0.495</value>
+      </period>
+      <pickID>Pick/20220927000534.059873.48621</pickID>
+      <waveformID networkCode="EC" stationCode="ARNL" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.481406Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.585817.48778">
+      <type>Ms(BB)</type>
+      <amplitude>
+        <value>1.578955679e-05</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:42.738393Z</reference>
+        <begin>-41.2</begin>
+        <end>66.1</end>
+      </timeWindow>
+      <period>
+        <value>0.0525</value>
+      </period>
+      <pickID>Pick/20220927000534.060232.48623</pickID>
+      <waveformID networkCode="EC" stationCode="SUSE" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.585856Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.543866.48770">
+      <type>Ms(BB)</type>
+      <amplitude>
+        <value>6.467320982e-06</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:45.778394Z</reference>
+        <begin>-42.91</begin>
+        <end>69.99</end>
+      </timeWindow>
+      <period>
+        <value>0.3575</value>
+      </period>
+      <pickID>Pick/20220927000534.060622.48625</pickID>
+      <waveformID networkCode="EC" stationCode="PCRA" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.543908Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.562199.48773">
+      <type>Ms(BB)</type>
+      <amplitude>
+        <value>7.172415885e-06</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:01:54.848393Z</reference>
+        <begin>-48.04</begin>
+        <end>72.98</end>
+      </timeWindow>
+      <period>
+        <value>0.18</value>
+      </period>
+      <pickID>Pick/20220927000534.060987.48627</pickID>
+      <waveformID networkCode="EC" stationCode="BOSC" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.562238Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.617254.48784">
+      <type>Ms(BB)</type>
+      <amplitude>
+        <value>1.639109402e-06</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:28.688393Z</reference>
+        <begin>-60.49</begin>
+        <end>98.4</end>
+      </timeWindow>
+      <period>
+        <value>0.1625</value>
+      </period>
+      <pickID>Pick/20220927000534.061168.48628</pickID>
+      <waveformID networkCode="EC" stationCode="MONB" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.617291Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.690908.48795">
+      <type>Ms(BB)</type>
+      <amplitude>
+        <value>3.076910708e-06</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:03:12.958393Z</reference>
+        <begin>-106.08</begin>
+        <end>55.11</end>
+      </timeWindow>
+      <period>
+        <value>0.025</value>
+      </period>
+      <pickID>Pick/20220927000534.061348.48629</pickID>
+      <waveformID networkCode="EC" stationCode="JSCH" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.690943Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.489669.48763">
+      <type>Ms(BB)</type>
+      <amplitude>
+        <value>1.094861426e-06</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:45.438396Z</reference>
+        <begin>-74.72</begin>
+        <end>95.39</end>
+      </timeWindow>
+      <period>
+        <value>0.465</value>
+      </period>
+      <pickID>Pick/20220927000534.061611.48630</pickID>
+      <waveformID networkCode="EC" stationCode="PORT" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.489706Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.6698.48791">
+      <type>Ms(BB)</type>
+      <amplitude>
+        <value>1.639191825e-06</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:59.854999Z</reference>
+        <begin>-88.42</begin>
+        <end>82.39</end>
+      </timeWindow>
+      <period>
+        <value>0.1875</value>
+      </period>
+      <pickID>Pick/20220927000534.061799.48631</pickID>
+      <waveformID networkCode="EC" stationCode="BMAS" channelCode="HHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.669836Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <amplitude publicID="Amplitude/20220927000555.545536.48771">
+      <type>Ms(BB)</type>
+      <amplitude>
+        <value>2.370637532e-06</value>
+      </amplitude>
+      <timeWindow>
+        <reference>2022-09-27T00:02:47.56Z</reference>
+        <begin>-69</begin>
+        <end>102</end>
+      </timeWindow>
+      <period>
+        <value>0.14</value>
+      </period>
+      <pickID>Pick/20220927000534.061985.48632</pickID>
+      <waveformID networkCode="EC" stationCode="BPAT" channelCode="BHZ"/>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:55.54557Z</creationTime>
+      </creationInfo>
+    </amplitude>
+    <origin publicID="Origin/20220927000551.286015.48745">
+      <time>
+        <value>2022-09-27T00:00:29.626862Z</value>
+        <uncertainty>0.8918005564</uncertainty>
+      </time>
+      <latitude>
+        <value>-5.680513859</value>
+        <uncertainty>5.569308454</uncertainty>
+      </latitude>
+      <longitude>
+        <value>-79.50650024</value>
+        <uncertainty>4.228057766</uncertainty>
+      </longitude>
+      <depth>
+        <value>10</value>
+        <uncertainty>0</uncertainty>
+      </depth>
+      <depthType>operator assigned</depthType>
+      <methodID>LOCSAT</methodID>
+      <earthModelID>iasp91</earthModelID>
+      <quality>
+        <associatedPhaseCount>16</associatedPhaseCount>
+        <usedPhaseCount>16</usedPhaseCount>
+        <associatedStationCount>11</associatedStationCount>
+        <usedStationCount>11</usedStationCount>
+        <depthPhaseCount>0</depthPhaseCount>
+        <standardError>3.390457604</standardError>
+        <azimuthalGap>299.2930603</azimuthalGap>
+        <maximumDistance>4.280601501</maximumDistance>
+        <minimumDistance>0.7398241162</minimumDistance>
+        <medianDistance>2.451793194</medianDistance>
+      </quality>
+      <uncertainty>
+        <minHorizontalUncertainty>8.965970039</minHorizontalUncertainty>
+        <maxHorizontalUncertainty>12.18061733</maxHorizontalUncertainty>
+        <azimuthMaxHorizontalUncertainty>12.62798309</azimuthMaxHorizontalUncertainty>
+        <preferredDescription>horizontal uncertainty</preferredDescription>
+      </uncertainty>
+      <evaluationMode>manual</evaluationMode>
+      <evaluationStatus>confirmed</evaluationStatus>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>mmejia@sc-gui.igepn.edu.ec</author>
+        <creationTime>2022-09-27T00:05:51.286602Z</creationTime>
+        <modificationTime>2022-09-27T00:06:06.172207Z</modificationTime>
+      </creationInfo>
+      <arrival>
+        <pickID>Pick/20220927000534.058836.48617</pickID>
+        <phase>P</phase>
+        <azimuth>41.77255249</azimuth>
+        <distance>0.7398241162</distance>
+        <timeResidual>-4.804824829</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.059201.48618</pickID>
+        <phase>S</phase>
+        <azimuth>41.77255249</azimuth>
+        <distance>0.7398241162</distance>
+        <timeResidual>-2.542220116</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.059414.48619</pickID>
+        <phase>P</phase>
+        <azimuth>341.0656128</azimuth>
+        <distance>1.376495361</distance>
+        <timeResidual>-4.751542091</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.059605.48620</pickID>
+        <phase>S</phase>
+        <azimuth>341.0656128</azimuth>
+        <distance>1.376495361</distance>
+        <timeResidual>-2.582278252</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.059873.48621</pickID>
+        <phase>P</phase>
+        <azimuth>345.2033691</azimuth>
+        <distance>2.191045523</distance>
+        <timeResidual>-2.408537865</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.060049.48622</pickID>
+        <phase>S</phase>
+        <azimuth>345.2033691</azimuth>
+        <distance>2.191045523</distance>
+        <timeResidual>-0.7137365341</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.060232.48623</pickID>
+        <phase>P</phase>
+        <azimuth>6.945672989</azimuth>
+        <distance>2.275627136</distance>
+        <timeResidual>-0.7509565353</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.060428.48624</pickID>
+        <phase>S</phase>
+        <azimuth>6.945672989</azimuth>
+        <distance>2.275627136</distance>
+        <timeResidual>4.21589756</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.060622.48625</pickID>
+        <phase>P</phase>
+        <azimuth>0.03970931843</azimuth>
+        <distance>2.451793194</distance>
+        <timeResidual>-1.839865685</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.060805.48626</pickID>
+        <phase>S</phase>
+        <azimuth>0.03970931843</azimuth>
+        <distance>2.451793194</distance>
+        <timeResidual>1.28810215</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.060987.48627</pickID>
+        <phase>P</phase>
+        <azimuth>21.90903854</azimuth>
+        <distance>2.707371712</distance>
+        <timeResidual>-1.422446251</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.061168.48628</pickID>
+        <phase>P</phase>
+        <azimuth>4.581635952</azimuth>
+        <distance>3.899552822</distance>
+        <timeResidual>3.555439949</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.061348.48629</pickID>
+        <phase>P</phase>
+        <azimuth>7.649357319</azimuth>
+        <distance>3.971783161</distance>
+        <timeResidual>1.245789528</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.061611.48630</pickID>
+        <phase>P</phase>
+        <azimuth>9.936367989</azimuth>
+        <distance>4.25266552</distance>
+        <timeResidual>1.21539402</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.061799.48631</pickID>
+        <phase>P</phase>
+        <azimuth>13.91014767</azimuth>
+        <distance>4.274652004</distance>
+        <timeResidual>1.630784035</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <arrival>
+        <pickID>Pick/20220927000534.061985.48632</pickID>
+        <phase>P</phase>
+        <azimuth>14.47262669</azimuth>
+        <distance>4.280601501</distance>
+        <timeResidual>8.665047646</timeResidual>
+        <timeUsed>true</timeUsed>
+        <horizontalSlownessUsed>false</horizontalSlownessUsed>
+        <backazimuthUsed>false</backazimuthUsed>
+        <weight>1</weight>
+      </arrival>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.839992.48804">
+        <magnitude>
+          <value>3.326048406</value>
+        </magnitude>
+        <type>Mjma</type>
+        <amplitudeID>Amplitude/20220927000555.148429.48749</amplitudeID>
+        <waveformID networkCode="PE" stationCode="SNIG" channelCode="BHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.840041Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.840234.48805">
+        <magnitude>
+          <value>3.963854516</value>
+        </magnitude>
+        <type>Mjma</type>
+        <amplitudeID>Amplitude/20220927000555.247603.48754</amplitudeID>
+        <waveformID networkCode="EC" stationCode="MCRA" channelCode="BLZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.840271Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.84052.48806">
+        <magnitude>
+          <value>4.271751944</value>
+        </magnitude>
+        <type>Mjma</type>
+        <amplitudeID>Amplitude/20220927000555.502388.48765</amplitudeID>
+        <waveformID networkCode="EC" stationCode="ARNL" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.840553Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.840776.48807">
+        <magnitude>
+          <value>4.132223669</value>
+        </magnitude>
+        <type>Mjma</type>
+        <amplitudeID>Amplitude/20220927000555.625502.48787</amplitudeID>
+        <waveformID networkCode="EC" stationCode="SUSE" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.840812Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.84103.48808">
+        <magnitude>
+          <value>3.864902261</value>
+        </magnitude>
+        <type>Mjma</type>
+        <amplitudeID>Amplitude/20220927000555.572871.48776</amplitudeID>
+        <waveformID networkCode="EC" stationCode="PCRA" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.841063Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.841245.48809">
+        <magnitude>
+          <value>3.918657423</value>
+        </magnitude>
+        <type>Mjma</type>
+        <amplitudeID>Amplitude/20220927000555.598764.48781</amplitudeID>
+        <waveformID networkCode="EC" stationCode="BOSC" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.841278Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.84146.48810">
+        <magnitude>
+          <value>3.702029035</value>
+        </magnitude>
+        <type>Mjma</type>
+        <amplitudeID>Amplitude/20220927000555.637577.48788</amplitudeID>
+        <waveformID networkCode="EC" stationCode="MONB" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.841494Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.841677.48811">
+        <magnitude>
+          <value>3.842398334</value>
+        </magnitude>
+        <type>Mjma</type>
+        <amplitudeID>Amplitude/20220927000555.693801.48796</amplitudeID>
+        <waveformID networkCode="EC" stationCode="JSCH" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.84171Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.841931.48812">
+        <magnitude>
+          <value>4.112239864</value>
+        </magnitude>
+        <type>Mjma</type>
+        <amplitudeID>Amplitude/20220927000555.525587.48768</amplitudeID>
+        <waveformID networkCode="EC" stationCode="PORT" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.841963Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.842174.48813">
+        <magnitude>
+          <value>3.63571162</value>
+        </magnitude>
+        <type>Mjma</type>
+        <amplitudeID>Amplitude/20220927000555.676752.48792</amplitudeID>
+        <waveformID networkCode="EC" stationCode="BMAS" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.842207Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.84238.48814">
+        <magnitude>
+          <value>4.032693635</value>
+        </magnitude>
+        <type>Mjma</type>
+        <amplitudeID>Amplitude/20220927000555.563552.48774</amplitudeID>
+        <waveformID networkCode="EC" stationCode="BPAT" channelCode="BHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.842413Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.84289.48816">
+        <magnitude>
+          <value>3.85704755</value>
+        </magnitude>
+        <type>ML</type>
+        <amplitudeID>Amplitude/20220927000555.151771.48750</amplitudeID>
+        <waveformID networkCode="PE" stationCode="SNIG" channelCode="BH"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.842927Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.843176.48817">
+        <magnitude>
+          <value>4.077193785</value>
+        </magnitude>
+        <type>ML</type>
+        <amplitudeID>Amplitude/20220927000555.255062.48755</amplitudeID>
+        <waveformID networkCode="EC" stationCode="MCRA" channelCode="BL"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.84321Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.843483.48818">
+        <magnitude>
+          <value>4.58548651</value>
+        </magnitude>
+        <type>ML</type>
+        <amplitudeID>Amplitude/20220927000555.510132.48766</amplitudeID>
+        <waveformID networkCode="EC" stationCode="ARNL" channelCode="HH"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.843517Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.843814.48819">
+        <magnitude>
+          <value>4.642511931</value>
+        </magnitude>
+        <type>ML</type>
+        <amplitudeID>Amplitude/20220927000555.61982.48785</amplitudeID>
+        <waveformID networkCode="EC" stationCode="SUSE" channelCode="HH"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.843848Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.844141.48820">
+        <magnitude>
+          <value>4.034864135</value>
+        </magnitude>
+        <type>ML</type>
+        <amplitudeID>Amplitude/20220927000555.577136.48777</amplitudeID>
+        <waveformID networkCode="EC" stationCode="PCRA" channelCode="HH"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.844175Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.849916.48821">
+        <magnitude>
+          <value>4.569162637</value>
+        </magnitude>
+        <type>ML</type>
+        <amplitudeID>Amplitude/20220927000555.592766.48779</amplitudeID>
+        <waveformID networkCode="EC" stationCode="BOSC" channelCode="HH"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.849992Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.850349.48822">
+        <magnitude>
+          <value>4.049836893</value>
+        </magnitude>
+        <type>ML</type>
+        <amplitudeID>Amplitude/20220927000555.611233.48783</amplitudeID>
+        <waveformID networkCode="EC" stationCode="MONB" channelCode="HH"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.850391Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.850676.48823">
+        <magnitude>
+          <value>4.662043943</value>
+        </magnitude>
+        <type>ML</type>
+        <amplitudeID>Amplitude/20220927000555.688258.48794</amplitudeID>
+        <waveformID networkCode="EC" stationCode="JSCH" channelCode="HH"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.850709Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.851009.48824">
+        <magnitude>
+          <value>4.185110006</value>
+        </magnitude>
+        <type>ML</type>
+        <amplitudeID>Amplitude/20220927000555.473671.48761</amplitudeID>
+        <waveformID networkCode="EC" stationCode="PORT" channelCode="HH"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.851043Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.851325.48825">
+        <magnitude>
+          <value>4.610285975</value>
+        </magnitude>
+        <type>ML</type>
+        <amplitudeID>Amplitude/20220927000555.662314.48790</amplitudeID>
+        <waveformID networkCode="EC" stationCode="BMAS" channelCode="HH"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.851358Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.851672.48826">
+        <magnitude>
+          <value>4.74335302</value>
+        </magnitude>
+        <type>ML</type>
+        <amplitudeID>Amplitude/20220927000555.531843.48769</amplitudeID>
+        <waveformID networkCode="EC" stationCode="BPAT" channelCode="BH"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.851717Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.852465.48828">
+        <magnitude>
+          <value>3.425471671</value>
+        </magnitude>
+        <type>MLv</type>
+        <amplitudeID>Amplitude/20220927000555.146984.48748</amplitudeID>
+        <waveformID networkCode="PE" stationCode="SNIG" channelCode="BHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.852516Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.852929.48829">
+        <magnitude>
+          <value>3.836229499</value>
+        </magnitude>
+        <type>MLv</type>
+        <amplitudeID>Amplitude/20220927000555.245129.48753</amplitudeID>
+        <waveformID networkCode="EC" stationCode="MCRA" channelCode="BLZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.85297Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.853249.48830">
+        <magnitude>
+          <value>4.297896394</value>
+        </magnitude>
+        <type>MLv</type>
+        <amplitudeID>Amplitude/20220927000555.499568.48764</amplitudeID>
+        <waveformID networkCode="EC" stationCode="ARNL" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.853283Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.853659.48831">
+        <magnitude>
+          <value>4.129213389</value>
+        </magnitude>
+        <type>MLv</type>
+        <amplitudeID>Amplitude/20220927000555.623053.48786</amplitudeID>
+        <waveformID networkCode="EC" stationCode="SUSE" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.853693Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.853994.48832">
+        <magnitude>
+          <value>3.798126743</value>
+        </magnitude>
+        <type>MLv</type>
+        <amplitudeID>Amplitude/20220927000555.57043.48775</amplitudeID>
+        <waveformID networkCode="EC" stationCode="PCRA" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.854028Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.854305.48833">
+        <magnitude>
+          <value>4.055847267</value>
+        </magnitude>
+        <type>MLv</type>
+        <amplitudeID>Amplitude/20220927000555.596291.48780</amplitudeID>
+        <waveformID networkCode="EC" stationCode="BOSC" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.854352Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.854677.48834">
+        <magnitude>
+          <value>3.831037265</value>
+        </magnitude>
+        <type>MLv</type>
+        <amplitudeID>Amplitude/20220927000555.607282.48782</amplitudeID>
+        <waveformID networkCode="EC" stationCode="MONB" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.854711Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.854978.48835">
+        <magnitude>
+          <value>3.930004382</value>
+        </magnitude>
+        <type>MLv</type>
+        <amplitudeID>Amplitude/20220927000555.685695.48793</amplitudeID>
+        <waveformID networkCode="EC" stationCode="JSCH" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.855012Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.855294.48836">
+        <magnitude>
+          <value>3.991732907</value>
+        </magnitude>
+        <type>MLv</type>
+        <amplitudeID>Amplitude/20220927000555.468267.48760</amplitudeID>
+        <waveformID networkCode="EC" stationCode="PORT" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.855328Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.855613.48837">
+        <magnitude>
+          <value>3.86043395</value>
+        </magnitude>
+        <type>MLv</type>
+        <amplitudeID>Amplitude/20220927000555.657907.48789</amplitudeID>
+        <waveformID networkCode="EC" stationCode="BMAS" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.855647Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.855897.48838">
+        <magnitude>
+          <value>4.23175736</value>
+        </magnitude>
+        <type>MLv</type>
+        <amplitudeID>Amplitude/20220927000555.520903.48767</amplitudeID>
+        <waveformID networkCode="EC" stationCode="BPAT" channelCode="BHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.85593Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.856296.48840">
+        <magnitude>
+          <value>4.363868984</value>
+        </magnitude>
+        <type>Ms(BB)</type>
+        <amplitudeID>Amplitude/20220927000555.481363.48762</amplitudeID>
+        <waveformID networkCode="EC" stationCode="ARNL" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.856329Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.856551.48841">
+        <magnitude>
+          <value>4.297689309</value>
+        </magnitude>
+        <type>Ms(BB)</type>
+        <amplitudeID>Amplitude/20220927000555.585817.48778</amplitudeID>
+        <waveformID networkCode="EC" stationCode="SUSE" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.856584Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.856797.48842">
+        <magnitude>
+          <value>3.963870934</value>
+        </magnitude>
+        <type>Ms(BB)</type>
+        <amplitudeID>Amplitude/20220927000555.543866.48770</amplitudeID>
+        <waveformID networkCode="EC" stationCode="PCRA" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.856831Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.857016.48843">
+        <magnitude>
+          <value>4.079635395</value>
+        </magnitude>
+        <type>Ms(BB)</type>
+        <amplitudeID>Amplitude/20220927000555.562199.48773</amplitudeID>
+        <waveformID networkCode="EC" stationCode="BOSC" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.857053Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.857223.48844">
+        <magnitude>
+          <value>3.702280476</value>
+        </magnitude>
+        <type>Ms(BB)</type>
+        <amplitudeID>Amplitude/20220927000555.617254.48784</amplitudeID>
+        <waveformID networkCode="EC" stationCode="MONB" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.857256Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.857448.48845">
+        <magnitude>
+          <value>3.988965186</value>
+        </magnitude>
+        <type>Ms(BB)</type>
+        <amplitudeID>Amplitude/20220927000555.690908.48795</amplitudeID>
+        <waveformID networkCode="EC" stationCode="JSCH" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.857481Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.857677.48846">
+        <magnitude>
+          <value>3.589416008</value>
+        </magnitude>
+        <type>Ms(BB)</type>
+        <amplitudeID>Amplitude/20220927000555.489669.48763</amplitudeID>
+        <waveformID networkCode="EC" stationCode="PORT" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.85771Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.857896.48847">
+        <magnitude>
+          <value>3.768270485</value>
+        </magnitude>
+        <type>Ms(BB)</type>
+        <amplitudeID>Amplitude/20220927000555.6698.48791</amplitudeID>
+        <waveformID networkCode="EC" stationCode="BMAS" channelCode="HHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.857929Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <stationMagnitude publicID="StationMagnitude/20220927000555.85809.48848">
+        <magnitude>
+          <value>3.929486163</value>
+        </magnitude>
+        <type>Ms(BB)</type>
+        <amplitudeID>Amplitude/20220927000555.545536.48771</amplitudeID>
+        <waveformID networkCode="EC" stationCode="BPAT" channelCode="BHZ"/>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.858123Z</creationTime>
+        </creationInfo>
+      </stationMagnitude>
+      <magnitude publicID="Magnitude/20220927000555.839786.48803">
+        <magnitude>
+          <value>3.914149651</value>
+          <uncertainty>0.1604001566</uncertainty>
+        </magnitude>
+        <type>Mjma</type>
+        <methodID>trimmed mean</methodID>
+        <stationCount>9</stationCount>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.839815Z</creationTime>
+        </creationInfo>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.839992.48804</stationMagnitudeID>
+          <residual>-0.588101245</residual>
+          <weight>0</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.840234.48805</stationMagnitudeID>
+          <residual>0.04970486501</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.84052.48806</stationMagnitudeID>
+          <residual>0.3576022922</residual>
+          <weight>0</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.840776.48807</stationMagnitudeID>
+          <residual>0.2180740177</residual>
+          <weight>0.625</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.84103.48808</stationMagnitudeID>
+          <residual>-0.04924739063</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.841245.48809</stationMagnitudeID>
+          <residual>0.004507771894</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.84146.48810</stationMagnitudeID>
+          <residual>-0.2121206167</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.841677.48811</stationMagnitudeID>
+          <residual>-0.0717513178</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.841931.48812</stationMagnitudeID>
+          <residual>0.198090213</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.842174.48813</stationMagnitudeID>
+          <residual>-0.2784380309</residual>
+          <weight>0.625</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.84238.48814</stationMagnitudeID>
+          <residual>0.1185439834</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+      </magnitude>
+      <magnitude publicID="Magnitude/20220927000555.842596.48815">
+        <magnitude>
+          <value>4.382443065</value>
+          <uncertainty>0.2786050777</uncertainty>
+        </magnitude>
+        <type>ML</type>
+        <methodID>trimmed mean</methodID>
+        <stationCount>9</stationCount>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.842626Z</creationTime>
+        </creationInfo>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.84289.48816</stationMagnitudeID>
+          <residual>-0.5253955147</residual>
+          <weight>0</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.843176.48817</stationMagnitudeID>
+          <residual>-0.3052492795</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.843483.48818</stationMagnitudeID>
+          <residual>0.2030434453</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.843814.48819</stationMagnitudeID>
+          <residual>0.2600688659</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.844141.48820</stationMagnitudeID>
+          <residual>-0.34757893</residual>
+          <weight>0.625</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.849916.48821</stationMagnitudeID>
+          <residual>0.1867195723</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.850349.48822</stationMagnitudeID>
+          <residual>-0.332606172</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.850676.48823</stationMagnitudeID>
+          <residual>0.2796008776</residual>
+          <weight>0.625</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.851009.48824</stationMagnitudeID>
+          <residual>-0.1973330591</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.851325.48825</stationMagnitudeID>
+          <residual>0.2278429099</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.851672.48826</stationMagnitudeID>
+          <residual>0.3609099551</residual>
+          <weight>0</weight>
+        </stationMagnitudeContribution>
+      </magnitude>
+      <magnitude publicID="Magnitude/20220927000555.85201.48827">
+        <magnitude>
+          <value>3.957960754</value>
+          <uncertainty>0.1409771722</uncertainty>
+        </magnitude>
+        <type>MLv</type>
+        <methodID>trimmed mean</methodID>
+        <stationCount>9</stationCount>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.852049Z</creationTime>
+        </creationInfo>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.852465.48828</stationMagnitudeID>
+          <residual>-0.5324890837</residual>
+          <weight>0</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.852929.48829</stationMagnitudeID>
+          <residual>-0.1217312551</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.853249.48830</stationMagnitudeID>
+          <residual>0.3399356396</residual>
+          <weight>0</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.853659.48831</stationMagnitudeID>
+          <residual>0.1712526344</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.853994.48832</stationMagnitudeID>
+          <residual>-0.1598340111</residual>
+          <weight>0.625</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.854305.48833</stationMagnitudeID>
+          <residual>0.09788651233</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.854677.48834</stationMagnitudeID>
+          <residual>-0.1269234896</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.854978.48835</stationMagnitudeID>
+          <residual>-0.02795637249</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.855294.48836</stationMagnitudeID>
+          <residual>0.03377215282</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.855613.48837</stationMagnitudeID>
+          <residual>-0.09752680412</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.855897.48838</stationMagnitudeID>
+          <residual>0.2737966061</residual>
+          <weight>0.625</weight>
+        </stationMagnitudeContribution>
+      </magnitude>
+      <magnitude publicID="Magnitude/20220927000555.856104.48839">
+        <magnitude>
+          <value>3.960029885</value>
+          <uncertainty>0.1914496795</uncertainty>
+        </magnitude>
+        <type>Ms(BB)</type>
+        <methodID>trimmed mean</methodID>
+        <stationCount>7</stationCount>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>mmejia@sc-gui.igepn.edu.ec</author>
+          <creationTime>2022-09-27T00:05:55.856137Z</creationTime>
+        </creationInfo>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.856296.48840</stationMagnitudeID>
+          <residual>0.403839099</residual>
+          <weight>0</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.856551.48841</stationMagnitudeID>
+          <residual>0.337659424</residual>
+          <weight>0.875</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.856797.48842</stationMagnitudeID>
+          <residual>0.00384104905</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.857016.48843</stationMagnitudeID>
+          <residual>0.1196055098</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.857223.48844</stationMagnitudeID>
+          <residual>-0.2577494094</residual>
+          <weight>0.875</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.857448.48845</stationMagnitudeID>
+          <residual>0.02893530091</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.857677.48846</stationMagnitudeID>
+          <residual>-0.3706138774</residual>
+          <weight>0</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.857896.48847</stationMagnitudeID>
+          <residual>-0.1917593998</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+        <stationMagnitudeContribution>
+          <stationMagnitudeID>StationMagnitude/20220927000555.85809.48848</stationMagnitudeID>
+          <residual>-0.03054372266</residual>
+          <weight>1</weight>
+        </stationMagnitudeContribution>
+      </magnitude>
+      <magnitude publicID="Origin/20220927000551.286015.48745/netMag/M">
+        <magnitude>
+          <value>4.053645839</value>
+        </magnitude>
+        <type>M</type>
+        <methodID>weighted average</methodID>
+        <stationCount>9</stationCount>
+        <creationInfo>
+          <agencyID>IGEPN</agencyID>
+          <author>scmag@sc3prim</author>
+          <creationTime>2022-09-27T00:06:06.63917Z</creationTime>
+        </creationInfo>
+      </magnitude>
+    </origin>
+    <event publicID="igepn2022sxmj">
+      <preferredOriginID>Origin/20220927000551.286015.48745</preferredOriginID>
+      <preferredMagnitudeID>Magnitude/20220927000555.85201.48827</preferredMagnitudeID>
+      <type>outside of network interest</type>
+      <creationInfo>
+        <agencyID>IGEPN</agencyID>
+        <author>scevent@sc3prim</author>
+        <creationTime>2022-09-27T00:01:22.225247Z</creationTime>
+        <modificationTime>2022-09-27T00:06:06.64478Z</modificationTime>
+      </creationInfo>
+      <description>
+        <text>Northern Peru</text>
+        <type>region name</type>
+      </description>
+      <originReference>Origin/20220927000551.286015.48745</originReference>
+    </event>
+  </EventParameters>
+</seiscomp>
