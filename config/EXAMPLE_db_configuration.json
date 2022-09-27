@@ -1,0 +1,10 @@
+{
+"INFLUX":
+    {
+    "host":"X.X.X.X",
+    "port":"xxxx",
+    "user":"USUARIO",
+    "pass":"CLAVE",
+    "DB_name":"DB_NAME"
+    }
+}
