@@ -1,13 +1,6 @@
 image: python:latest
 before_script:
   - python --version
-  - pip install virtualenv
-  - virtualenv venv
-  - source venv/bin/activate
-  - pip install sphinx
-  - pip install numpy
-  - pip install obspy
-  - pip install get_mseed_data
 
 stages:
   - alldoc
