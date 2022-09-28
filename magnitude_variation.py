@@ -28,7 +28,7 @@ def create_zip_list(event_folder):
 
     :param event_folder: events folder path
     :returns: file_list
-    :rtype: list
+    :rtype: listt
     """
 
     file_list = []
