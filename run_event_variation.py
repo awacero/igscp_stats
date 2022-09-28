@@ -91,8 +91,10 @@ def main():
             print("start of LOCAL mode. Do not send to INFLUX.Plot using PLOTLY")
             
             if len(sys.argv) == 3:
-                events_path = sys.argv[2]      
+                events_path = sys.argv[2]
                 station_mag_df, network_mag_df = scevtlog2df(events_path)
+                station_mag_df.to_csv('./csv_data/station_mag.csv')
+                network_mag_df.to_csv('./csv_data/network_mag.csv')
                 magnitude_variation_plotly.generate_plotly_magnitude_variation(network_mag_df,station_mag_df)
             else:
                 print("LACKS PATH TO XML")
