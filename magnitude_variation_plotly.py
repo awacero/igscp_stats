@@ -102,7 +102,7 @@ def generate_plotly_magnitude_variation(network_mag_df, station_mag_df):
                                specs=[[{"type": "xy"}],
                                       [{"type": "scene"}]],
                                subplot_titles=("Magnitude Variation Graph",
-                                               "Author-Modification time-Magnitude Graph"))
+                                               "Author- Modification time-Magnitude Graph"))
 
     data = fig_scatter_s_m.data + fig_scatter_n_m.data + fig_boxplot.data + fig_scatter_event.data + fig_scatter_author.data
     data_3d = fig_3d_author.data
