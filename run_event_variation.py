@@ -8,7 +8,7 @@ from get_mseed_data import get_mseed
 from get_mseed_data import get_mseed_utils as gmutils
 from obspy import UTCDateTime
 
-
+##TEST CI CD
 if gmutils.check_file("./config/logging.ini"):
     
     logging.config.fileConfig('./config/logging.ini', disable_existing_loggers=False)
